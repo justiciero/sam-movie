@@ -136,7 +136,7 @@ header .header-nav .header-nav--ul{
     height: 40px;
     border-radius: 0 10px 10px 0;
     border: none;
-    background-image: url(/icon/search.png);
+    background-image: url(./icon/search.png);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -286,16 +286,16 @@ footer .footer-nav .footer-nav--social_media{
 }
 
 .footer-nav--social_media .insta{
-    background-image: url(/icon/instagram.png);
+    background-image: url(./icon/instagram.png);
 }
 .footer-nav--social_media .twitter{
-    background-image: url(/icon/twitter.png);
+    background-image: url(./icon/twitter.png);
 }
 .footer-nav--social_media .youtube{
-    background-image: url(/icon/youtube.png);
+    background-image: url(./icon/youtube.png);
 }
 .footer-nav--social_media .tiktok{
-    background-image: url(/icon/tiktok.png);
+    background-image: url(./icon/tiktok.png);
 }
 
 .footer-nav--text .footer-nav--ul li{
