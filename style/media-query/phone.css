@@ -1,0 +1,55 @@
+/* Phones */
+
+
+    header .header-section--wall .header-wall {
+        width: 90px;
+    }
+
+    main .section-Top .top10--container {
+        height: 330px;
+    }
+
+    main .section-Top .top10--container article{
+        min-width: 190px;
+        max-width: 300px;
+        height: 290px;
+    }
+
+    main .section-Top .top10--container {
+        height: 330px;
+    }
+
+@media (min-width: 425px) {
+
+    header{
+        width: 100%;
+        min-width: 425px;
+        max-width: 767px;
+    }
+    
+    header .header-section--wall .header-wall {
+        width: 85.1px;
+    }
+
+    header .header-section--wall .header-wall {
+        width: 180px;
+    }
+    
+    main{
+        width: 100%;
+        min-width: 425px;
+        max-width: 767px;
+    }
+
+    main .section-Top .top10--container {
+        gap: 5px;
+        height: 330px;
+    }
+    
+    footer{
+        width: 100%;
+        min-width: 425px;
+        max-width: 767px;
+    }
+    
+}

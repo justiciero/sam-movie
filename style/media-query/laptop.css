@@ -1,0 +1,86 @@
+/* Laptop */
+    header{
+        width: 100%;
+        min-width: 1024px;
+        max-width: 1339px;
+        flex-wrap: nowrap;
+   }
+
+    header .header-section--wall .header-wall{
+    width: 260px;
+
+    }
+
+   .header-nav .header-nav--ul li a{
+    font-size: 18px;
+    }
+
+   .header-nav .search-container{
+        width: 490px;
+        height: 40px;
+    }
+
+    .header-nav .search-container input{
+        width: 450px;
+        height: 40px;
+    }
+
+    .header-nav .search-container button{
+        width: 40px;
+        height: 40px;
+        
+    }
+
+    main{
+        width: 85%;
+        margin: 0 auto;
+        min-width: 1024px;
+        max-width: 1339px;
+   }
+    footer{
+        width: 100%;
+        min-width: 1024px;
+        max-width: 1339px;
+   }
+
+
+@media (min-width: 1440px){
+    *{
+        overflow-x: none !important;
+        overscroll-behavior-x: none;
+    }
+    header{
+        width: 100%;
+        min-width: 1440px;
+        max-width: 1740px;
+        flex-wrap: nowrap;
+   }
+
+   header .header-section--wall .header-wall{
+    width: 390px;
+
+    }
+
+    main{
+        width: 60%;
+        min-width: 1440px;
+        max-width: 1740px;
+        flex-wrap: nowrap;
+   }
+
+
+   main .main-section--Top-upcoming .top10--container  {
+    height: 430px;
+}
+
+   main .main-section--Top-upcoming .top10--container article{
+        height: 390px;
+}
+
+    footer{
+        width: 100%;
+        min-width: 1440px;
+        max-width: 1740px;
+   }
+
+}

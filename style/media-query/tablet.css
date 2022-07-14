@@ -1,0 +1,56 @@
+/* Tablets */
+
+header{
+        width: 100%;
+        min-width: 768px;
+        max-width: 1023px;
+        background-color: red;
+        flex-wrap: nowrap;
+    }
+
+    header .header-section--wall .header-wall {
+        width: 205px;
+        height: 35vh;
+    }
+
+    .wall6, .wall7, .wall8, .wall9, .wall10{
+    display: none;
+   }
+
+   .header-nav .search-container{
+    width: 355px;
+    }
+
+    .header-nav .search-container input{
+        width: 315px;
+    }
+
+   main{
+        width: 100%;
+        min-width: 768px;
+        max-width: 1023px;
+   }
+
+    main .section-Top .top10--container {
+        gap: 26px;
+    }
+
+footer{
+        width: 100%;
+        min-width: 768px;
+        max-width: 1023px;
+   }
+
+   footer .footer-nav{
+    justify-content: space-evenly;
+   }
+
+   footer .footer-nav--text{
+        padding-top: 5px;
+   }
+
+   footer .footer-nav--text .footer-nav--ul{
+        display: flex;
+        gap: 20px;
+   }
+
