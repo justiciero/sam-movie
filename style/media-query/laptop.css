@@ -45,10 +45,6 @@
 
 
 @media (min-width: 1440px){
-    *{
-        overflow-x: none !important;
-        overscroll-behavior-x: none;
-    }
     header{
         width: 100%;
         min-width: 1440px;

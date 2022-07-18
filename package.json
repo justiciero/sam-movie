@@ -1,0 +1,22 @@
+{
+  "name": "sam-movie",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/justiciero/sam-movie.git"
+  },
+  "keywords": [
+    "sammy"
+  ],
+  "author": "@SamAlex",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/justiciero/sam-movie/issues"
+  },
+  "homepage": "https://github.com/justiciero/sam-movie#readme"
+}

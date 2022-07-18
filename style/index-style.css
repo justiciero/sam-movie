@@ -3,11 +3,6 @@
     box-sizing: border-box;
 }
 
-body {
-overflow-y: hidden;
-overflow-x: hidden;
-}
-
 header{
     width: 100%;
     min-width: 320px;
@@ -190,13 +185,13 @@ main .section-Top .top10--container::-webkit-scrollbar-track
 
 main .section-Top .top10--container::-webkit-scrollbar
 {
- width: 3px;
- background-color: #F5F5F5;
+ width: 10px;
+
 }
 
 main .section-Top .top10--container::-webkit-scrollbar-thumb
 {
- background-color: #000000;
+    background-color:brown;
 }
 
 main .section-Top .top10--container article{
@@ -257,6 +252,49 @@ main .section-Top .top10--container article .text-container p a:hover{
     text-decoration: underline;
 }
 
+main .main-section--nav{
+    width: 90%;
+    margin: 0 auto;
+}
+
+
+.main-section--nav .section-nav-categories{
+    width: 80%;
+    margin: 20px auto;
+}
+
+.main-section--nav .section-nav-categories .main-nav-categories--ul{
+    display: flex;
+    gap: 30px;
+    flex-wrap: nowrap;
+    overflow-x: scroll ;
+    overscroll-behavior-x: contain;
+    scroll-snap-type:x proximity;
+}
+
+.main-section--nav .section-nav-categories .main-nav-categories--ul::-webkit-scrollbar{
+    width: 0;
+}
+
+.main-section--nav .section-nav-categories .main-nav-categories--ul .ul-div--category{
+    background-color: papayawhip;
+    min-width: 100px;
+    height: 30px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-section--nav .section-nav-categories .main-nav-categories--ul .ul-div--category .category-tilte{
+    text-decoration: none;
+    color: #000000;
+}
+
+.main-section--nav .section-nav-categories .main-nav-categories--ul .ul-div--category:hover{
+    transform: scale(1.1);
+}
+
 /* Main done */
 
 /* footer */
@@ -268,6 +306,7 @@ footer{
     height: 10vh;
     background: maroon;
     padding-top: 10px;
+    margin-top: 30px;
 }
 
 footer .footer-nav{
