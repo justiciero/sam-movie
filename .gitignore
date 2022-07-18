@@ -103,8 +103,6 @@ dist
 # TernJS port file
 .tern-port
 
-# apikey.js (API KEY)
-src/apikey.js
 
 # ejemplo.js (API KEY)
 src/ejemplo.js
