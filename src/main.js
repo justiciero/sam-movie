@@ -34,7 +34,7 @@ async function getTrendingMovies() {
         moviePreview.appendChild(movieContainer);
 
     });
-};
+}
 
 
 async function getupcomingmovies() {
@@ -95,7 +95,7 @@ async function getTrendingSeries() {
         trendingSeries.appendChild(topSeriesContainer);
 
     })
-};
+}
 
 async function showOnAir() {
     const res = await fetch('https://api.themoviedb.org/3/tv/airing_today?api_key=9a554755227d8a4d00737b643e68168c');
@@ -126,7 +126,7 @@ async function showOnAir() {
         trendingSeries_OnAir.appendChild(topSeriesContainer_OnAir);
 
     })
-};
+}
 
 
 async function genresMovies() {
@@ -157,7 +157,7 @@ async function genresMovies() {
         movieCategory.appendChild(categoryDiv);
 
     })
-};
+}
 
 getupcomingmovies();
 getTrendingMovies();
