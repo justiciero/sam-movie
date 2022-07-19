@@ -1,5 +1,5 @@
 async function getTrendingMovies() {
-    const res = await fetch('https://api.themoviedb.org/3/trending/movie/day?limit=10&api_key=9a554755227d8a4d00737b643e68168c');
+    const res = await fetch('https://api.themoviedb.org/3/trending/movie/day?api_key=9a554755227d8a4d00737b643e68168c');
     const data = await res.json();
 
     const movies = data.results;
@@ -39,7 +39,7 @@ async function getTrendingMovies() {
 
 
 async function getupcomingmovies() {
-    const res = await fetch('https://api.themoviedb.org/3/movie/upcoming/?limit=10&api_key=9a554755227d8a4d00737b643e68168c');
+    const res = await fetch('https://api.themoviedb.org/3/movie/upcoming?api_key=9a554755227d8a4d00737b643e68168c');
     const data = await res.json();
 
     const upcomingMovies = data.results;
@@ -67,10 +67,10 @@ async function getupcomingmovies() {
         upcomingMovieContainerpic.appendChild(movieImg);
         upcomingMoviePreview.appendChild(upcomingmovieContainer);
     });
-}
+};
 
 async function getTrendingSeries() {
-    const res = await fetch('https://api.themoviedb.org/3/tv/popular/?limit=10&api_key=9a554755227d8a4d00737b643e68168c');
+    const res = await fetch('https://api.themoviedb.org/3/tv/popular?api_key=9a554755227d8a4d00737b643e68168c');
     const data = await res.json();
 
     const trendingSeries = data.results;
@@ -99,7 +99,7 @@ async function getTrendingSeries() {
 }
 
 async function showOnAir() {
-    const res = await fetch('https://api.themoviedb.org/3/tv/airing_today/?limit=10&api_key=9a554755227d8a4d00737b643e68168c');
+    const res = await fetch('https://api.themoviedb.org/3/tv/airing_today?api_key=9a554755227d8a4d00737b643e68168c');
     const data = await res.json();
 
     const onAir = data.results;
