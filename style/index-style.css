@@ -20,7 +20,7 @@ header .header-section--wall{
 
 /* Header background */
 
-header .header-section--wall .header-wall{
+header .header-section--wall .header-wall, .background-movie{
     width: 75px;
     height: 18vh;
     background-position: center;
@@ -33,7 +33,7 @@ header .header-section--wall .wall1{
     background-image:linear-gradient(rgba(5,7,12,0.70), rgba(5,7,12,0.70)),
     url("https://i.pinimg.com/564x/2c/5e/e1/2c5ee1b56125136a9c399435ca987084.jpg");
 }
-header .header-section--wall .wall2{
+header .header-section--wall .wall2, #backgroundDiv{
     background-image:linear-gradient(rgba(2,4,7,0.30), rgba(5,7,12,0.70)),
     url("https://i.pinimg.com/564x/f4/11/43/f4114326be71a66dbc8934da41e8557d.jpg");
 }
@@ -177,6 +177,7 @@ main .section-Top .top10--container{
     padding: 20px 0 0 20px;
 }
 
+
 main .section-Top .top10--container::-webkit-scrollbar-track
 {
  -webkit-box-shadow: inset 0 0 3px rgba(0,0,0,0.3);
@@ -201,6 +202,28 @@ main .section-Top .top10--container article{
     max-width: 300px;
     height: 280px;
     position: relative;
+    order: 1;
+}
+
+main .section-Top .top10--container .ok{
+    margin-left: 20px;
+    order: 2;
+}
+
+main .section-Top .top10--container article .background-movie{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+
+main .section-Top .top10--container article .background-movie button{
+    width: 130px;
+    height: 40px;
+    border-radius: 30px;
+    border: none;
 }
 
 main .section-Top .top10--container article picture{

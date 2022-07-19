@@ -1,10 +1,9 @@
-
-
 async function getTrendingMovies() {
     const res = await fetch('https://api.themoviedb.org/3/trending/movie/day?limit=10&api_key=9a554755227d8a4d00737b643e68168c');
     const data = await res.json();
 
     const movies = data.results;
+    console.log({data, movies});
 
     movies.forEach(movie => {
 
