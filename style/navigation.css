@@ -1,0 +1,78 @@
+/* Active Inactive */
+
+
+/* Header */
+.active-size{
+    height: 5vh;
+}
+
+/* Inactive Page */
+.inactive{
+    display: none;
+}
+
+/* Nav style */
+.header-nav .header-nav--ul .inactive-color a{
+    text-decoration: overline;
+}
+
+
+/* Movie pages */
+main .section-Top .top--moviepages{
+    height: auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 20px 0;
+    padding: 30px 0;
+
+}
+
+main .section-Top .top--moviepages .top-mp--article{
+    width: 40%;
+    height: 100%;
+    min-height: 160px;
+}
+
+/* Movie pages done */
+
+/* Movie Description */
+
+main .main--description-section{
+    height: auto;
+}
+
+main .main--description-section .description-img{
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+}
+
+main .main--description-section .description-img img{
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+}
+
+
+main .main--description-section .description-data{
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+    position: relative;
+}
+
+main .main--description-section .description-data p{
+    font-size: 9px;
+    position: absolute;
+    right: 0;
+    top: 20%;
+}
+
+main .main--description-section  .description-article{
+    height: auto;
+}
+
+
+/* Movie Description Done */

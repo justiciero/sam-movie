@@ -13,6 +13,7 @@ header{
     position: relative;
 }
 
+
 header .header-section--wall{
     display: flex;
     width: 100%;
@@ -96,7 +97,13 @@ header .header-nav .header-nav--ul{
 .header-nav .header-nav--ul li a{
     text-decoration: none;
     color: white;
+    
 }
+
+.header-nav .header-nav--ul .home-nav  a{
+    text-decoration: underline;
+}
+
 .header-nav .header-nav--ul li:hover{
     transform: scale(1.1);
 }
@@ -147,6 +154,7 @@ header .header-nav .header-nav--ul{
 
 
 /* Main */
+
 
 main{
     width: 100%;
@@ -226,13 +234,13 @@ main .section-Top .top10--container article .background-movie button{
     border: none;
 }
 
-main .section-Top .top10--container article picture{
+main .section-Top .top10--container article picture, .top--moviepages .top-mp--article .image--Top-movie{
     width: 100%;
     height: 260px;
     object-fit: cover;
 }
 
-main .section-Top .top10--container article picture img{
+main .section-Top .top10--container article picture img, .top--moviepages .top-mp--article .image--Top-movie .movie-img {
     width: 100%;
     height: 100%;
     border-radius: 10px;

@@ -5,13 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style/index-style.css">
+    <link rel="stylesheet" href="./style/navigation.css">
     <link rel="stylesheet" href="./style/media-query/phone.css"  media="(min-width: 375px)">
     <link rel="stylesheet" href="./style/media-query/tablet.css"  media="(min-width: 768px)">
     <link rel="stylesheet" href="./style/media-query/laptop.css"  media="(min-width: 1024px)">
     <title>Sam Movies</title>
 </head>
 <body>
-    <header>
+    <header class="">
         <section class="header-section--wall wall-section1">
             <div class="header-wall wall1">
             </div>
@@ -42,12 +43,13 @@
         
         <nav class="header-nav">
             <ul class="header-nav--ul">
-                <li class="cat"><a href="#">Categories</a></li>
-                <li><a href="">Movies</a></li>
-                <li><a href="">TV Shows</a></li>
+                <li class="category-nav"><a href="#">Categories</a></li>
+                <li class="home-nav inactive"><a href="#">Home</a></li>
+                <li class="movie-nav "><a href="">Movies</a></li>
+                <li class="tv-nav "><a href="">TV Shows</a></li>
             </ul>
 
-            <form class="search-container">
+            <form class="search-container ">
                 <input type="text" placeholder="Buscar...">
                 <button onclick="btnsearch()"></button>
             </form>
@@ -98,6 +100,153 @@
         </nav>
     </section>
 
+
+    <!-- Movies Pages Views-->
+    <section class="main-section--Top-movies section-Top inactive" id="all-top-movie-section">
+        <h2>All Trending Movies</h2>
+
+        <section class=" top--moviepages">
+            
+            <article class="top-mp--article" >
+                <picture class="image--Top-movie">
+                   <img src="https://i.pinimg.com/564x/96/eb/ee/96ebeeb354ff0d0e6ae8cfeb51712149.jpg" alt="" class="movie-img">
+                </picture>
+            </article>
+        </section>
+
+        <p><a href="">More</a></p>
+    </section>
+    
+    <section class="main-section--Top-movies section-Top inactive" id="all-upcoming-movie-section">
+        <h2>All Upcoming Movies</h2>
+
+        <section class=" top--moviepages">
+            
+            <article class="top-mp--article" >
+                <picture class="image--Top-movie">
+                   <img src="https://i.pinimg.com/564x/96/eb/ee/96ebeeb354ff0d0e6ae8cfeb51712149.jpg" alt="" class="movie-img">
+                </picture>
+            </article>
+
+        </section>
+        
+        <p><a href="">More</a></p>
+    </section>
+    
+    <section class="main-section--Top-movies section-Top inactive" id="best-rated-movie-section">
+        <h2>Best Rated Movies</h2>
+
+        <section class=" top--moviepages">
+            
+            <article class="top-mp--article" >
+                <picture class="image--Top-movie">
+                   <img src="https://i.pinimg.com/564x/96/eb/ee/96ebeeb354ff0d0e6ae8cfeb51712149.jpg" alt="" class="movie-img">
+                </picture>
+            </article>
+        </section>
+
+        <p><a href="">More</a></p>
+    </section>
+    
+    <!-- Series Pages Views-->
+
+    <section class="main-section--Top-movies section-Top inactive" id="all-top-tv">
+        <h2>All Trending Tv Shows</h2>
+
+        <section class=" top--moviepages">
+            
+            <article class="top-mp--article" >
+                <picture class="image--Top-movie">
+                   <img src="https://i.pinimg.com/564x/96/eb/ee/96ebeeb354ff0d0e6ae8cfeb51712149.jpg" alt="" class="movie-img">
+                </picture>
+            </article>
+        </section>
+
+        <p><a href="">More</a></p>
+    </section>
+    
+    <section class="main-section--Top-movies section-Top inactive" id="best-rated-tv">
+        <h2>Best Rated TV Shows</h2>
+
+        <section class=" top--moviepages">
+            
+            <article class="top-mp--article" >
+                <picture class="image--Top-movie">
+                   <img src="https://i.pinimg.com/564x/96/eb/ee/96ebeeb354ff0d0e6ae8cfeb51712149.jpg" alt="" class="movie-img">
+                </picture>
+            </article>
+        </section>
+
+        <p><a href="">More</a></p>
+    </section>
+    
+    <section class="main-section--Top-movies section-Top inactive" id="last-tv">
+        <h2>Last TV Shows</h2>
+
+        <section class=" top--moviepages">
+            
+            <article class="top-mp--article" >
+                <picture class="image--Top-movie">
+                   <img src="https://i.pinimg.com/564x/96/eb/ee/96ebeeb354ff0d0e6ae8cfeb51712149.jpg" alt="" class="movie-img">
+                </picture>
+            </article>
+        </section>
+
+        <p><a href="">More</a></p>
+    </section>
+    
+    <section class="main-section--Top-movies section-Top inactive" id="on-air-tv">
+        <h2>On Air</h2>
+
+        <section class=" top--moviepages">
+            
+            <article class="top-mp--article" >
+                <picture class="image--Top-movie">
+                   <img src="https://i.pinimg.com/564x/96/eb/ee/96ebeeb354ff0d0e6ae8cfeb51712149.jpg" alt="" class="movie-img">
+                </picture>
+            </article>
+        </section>
+
+        <p><a href="">More</a></p>
+    </section>
+    
+    <section class="main-section--Top-movies section-Top inactive" id="on-airT-tv">
+        <h2>On Air Today</h2>
+
+        <section class=" top--moviepages">
+            
+            <article class="top-mp--article" >
+                <picture class="image--Top-movie">
+                   <img src="https://i.pinimg.com/564x/96/eb/ee/96ebeeb354ff0d0e6ae8cfeb51712149.jpg" alt="" class="movie-img">
+                </picture>
+            </article>
+        </section>
+
+        <p><a href="">More</a></p>
+    </section>
+
+
+    <!-- Description Pages views -->
+
+    <section class="main-section--Top-movies section-Top main--description-section inactive" id="description-section">
+        <div class="description-img">
+            <img src="https://i.pinimg.com/564x/96/eb/ee/96ebeeb354ff0d0e6ae8cfeb51712149.jpg" alt="" srcset="">
+        </div>
+
+        <section class="description-data">
+            <span>
+                <h2>Thor: love and thunder </h2>
+            </span>
+                <p>20/07/2022</p>
+        </section>
+
+        <article class="description-article">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore beatae soluta similique fuga animi, voluptates culpa, nisi ea numquam sunt, aspernatur enim hic sequi eos veritatis cum maxime. Maiores, rerum.
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem modi harum quo reprehenderit quia, totam possimus similique, quasi nobis, facere numquam veniam eaque ab? Rem eligendi molestiae dolore perferendis culpa!
+            </p>
+        </article>
+    </section>
+
     </main>
 
     <footer>
@@ -122,7 +271,9 @@
         </nav>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="./src/apikey.js"></script>
     <script src="./src/main.js"></script>
+    <script src="./src/nav.js"></script>
 </body>
 </html>

@@ -1,6 +1,15 @@
+const api = axios.create({
+    baseURL: 'https://api.themoviedb.org/3/', 
+    Headers: {
+        'content-Type': 'application/json;charset=utf-8',
+    },
+    params: {
+        'api_key': '9a554755227d8a4d00737b643e68168c'
+    },
+})
+
 async function getTrendingMovies() {
-    const res = await fetch('https://api.themoviedb.org/3/trending/movie/day?api_key=9a554755227d8a4d00737b643e68168c');
-    const data = await res.json();
+    const { data } = await api('trending/movie/day');
 
     const movies = data.results;
     console.log({data, movies});
@@ -39,8 +48,7 @@ async function getTrendingMovies() {
 
 
 async function getupcomingmovies() {
-    const res = await fetch('https://api.themoviedb.org/3/movie/upcoming?api_key=9a554755227d8a4d00737b643e68168c');
-    const data = await res.json();
+    const { data } = await api('movie/upcoming');
 
     const upcomingMovies = data.results;
 
@@ -70,8 +78,7 @@ async function getupcomingmovies() {
 };
 
 async function getTrendingSeries() {
-    const res = await fetch('https://api.themoviedb.org/3/tv/popular?api_key=9a554755227d8a4d00737b643e68168c');
-    const data = await res.json();
+    const { data } = await api('tv/popular');
 
     const trendingSeries = data.results;
 
@@ -99,8 +106,7 @@ async function getTrendingSeries() {
 }
 
 async function showOnAir() {
-    const res = await fetch('https://api.themoviedb.org/3/tv/airing_today?api_key=9a554755227d8a4d00737b643e68168c');
-    const data = await res.json();
+    const { data } = await api('tv/airing_today');
 
     const onAir = data.results;
 
@@ -131,8 +137,7 @@ async function showOnAir() {
 
 
 async function genresMovies() {
-    const res = await fetch('https://api.themoviedb.org/3/genre/movie/list?api_key=9a554755227d8a4d00737b643e68168c');
-    const data = await res.json();
+    const { data } = await api('genre/movie/list');
 
     const categories = data.genres;
     console.log({data, categories})
