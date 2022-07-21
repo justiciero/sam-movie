@@ -3,6 +3,10 @@
     box-sizing: border-box;
 }
 
+#backgroundinactive1, #backgroundinactive2{
+    display: none;
+}
+
 header{
     width: 100%;
     min-width: 320px;
@@ -20,6 +24,10 @@ header .header-section--wall{
 }
 
 /* Header background */
+
+header .span-wall{
+    width: 100%;
+}
 
 header .header-section--wall .header-wall, .background-movie{
     width: 75px;
@@ -96,7 +104,7 @@ header .header-nav .header-nav--ul{
 
 .header-nav .header-nav--ul li a{
     text-decoration: none;
-    color: white;
+    color: grey;
     
 }
 

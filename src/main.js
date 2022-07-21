@@ -4,7 +4,7 @@ const api = axios.create({
         'content-Type': 'application/json;charset=utf-8',
     },
     params: {
-        'api_key': '9a554755227d8a4d00737b643e68168c'
+        'api_key': API_KEY,
     },
 })
 
@@ -165,8 +165,3 @@ async function genresMovies() {
     })
 }
 
-getupcomingmovies();
-getTrendingMovies();
-getTrendingSeries();
-showOnAir();
-genresMovies();

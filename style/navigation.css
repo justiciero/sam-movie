@@ -11,6 +11,10 @@
     display: none;
 }
 
+header .inactiveback{
+    display: none !important;
+}
+
 /* Nav style */
 .header-nav .header-nav--ul .inactive-color a{
     text-decoration: overline;
