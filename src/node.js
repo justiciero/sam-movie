@@ -10,10 +10,19 @@ const navSection =  document.querySelector('#header-nav--section');
 
 // Main
 
- const trendingMovie = document.querySelector("#top-movie-section");
+ const trendingMovie = document.querySelector("#Top-movie-section");
  const trendingSeries = document.querySelector("#tvshow-section");
- const upcomingMovie = document.querySelector("#upcoming-section");
+ const upcomingMoviePreview = document.querySelector("#upcoming-section");
  const categoryNav = document.querySelector("#categories");
+ const movieCategory = document.querySelector('#genresID');
+ const trendingSeries_OnAir = document.querySelector('#tv-upcoming--section');
+ const categoryPageMovie = document.querySelector('#category-page-movie--section');
+ const categoryPageTv = document.querySelector('#category-page-tv--section');
+
+ const category_section = document.querySelector('#category-page');
+ 
+ const genres = document.querySelector('#categories');
+
 
 //  Movie Pages
  const TrendingMoviePage = document.querySelector("#all-top-movie-section");
@@ -41,3 +50,6 @@ const navSection =  document.querySelector('#header-nav--section');
   const moviePage_section = document.querySelector(".movie-page--section");
   const tvPage_section = document.querySelector(".tv-page--section");
   const description_section = document.querySelector(".description-page--section");
+  const search_section = document.querySelector(".search-page--search");
+  const genresOp = document.querySelector(".main-section--nav");
+  const title = document.querySelector('.category-title');

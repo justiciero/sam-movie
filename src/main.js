@@ -1,3 +1,4 @@
+
 const api = axios.create({
     baseURL: 'https://api.themoviedb.org/3/', 
     Headers: {
@@ -8,15 +9,15 @@ const api = axios.create({
     },
 })
 
-async function getTrendingMovies() {
+async function getTrendingMovies(id) {
     const { data } = await api('trending/movie/day');
 
     const movies = data.results;
-    console.log({data, movies});
 
-    movies.forEach(movie => {
+    trendingMovie.innerHTML = "";
 
-        const moviePreview = document.querySelector('#Top-movie-section .top10--container' )
+        movies.forEach(movie => {
+
 
         const movieContainer = document.createElement('article');
         movieContainer.classList.add('top-movie--article');
@@ -41,7 +42,7 @@ async function getTrendingMovies() {
         movieContainer.appendChild(movieContainerpic);
         movieContainerpic.appendChild(movieImg);
         movieContainerpic.appendChild(movieTextContainer);
-        moviePreview.appendChild(movieContainer);
+        trendingMovie.appendChild(movieContainer);
 
     });
 }
@@ -52,9 +53,10 @@ async function getupcomingmovies() {
 
     const upcomingMovies = data.results;
 
+    upcomingMoviePreview.innerHTML = "";
+
     upcomingMovies.forEach(upcomingMovie => {
 
-        const upcomingMoviePreview = document.querySelector('#upcoming-section .top10--container' )
 
         const upcomingmovieContainer = document.createElement('article');
         upcomingmovieContainer.classList.add('top-movie--article');
@@ -80,11 +82,12 @@ async function getupcomingmovies() {
 async function getTrendingSeries() {
     const { data } = await api('tv/popular');
 
-    const trendingSeries = data.results;
+    const trending_Series = data.results;
 
-    trendingSeries.forEach(tvshow =>{
+        trendingSeries.innerHTML = "";
 
-        const trendingSeries = document.querySelector('#tvshow-section .top10--container' )
+    trending_Series.forEach(tvshow =>{
+
 
         const topSeriesContainer = document.createElement('article');
         topSeriesContainer.classList.add('top-movie--article');
@@ -110,9 +113,11 @@ async function showOnAir() {
 
     const onAir = data.results;
 
+    trendingSeries_OnAir.innerHTML = ""; 
+    // .top10--container
+
     onAir.forEach(tvshowonair =>{
 
-        const trendingSeries_OnAir = document.querySelector('#tv-upcoming--section .top10--container' )
 
         const topSeriesContainer_OnAir = document.createElement('article');
         topSeriesContainer_OnAir.classList.add('top-movie--article');
@@ -142,15 +147,19 @@ async function genresMovies() {
     const categories = data.genres;
     console.log({data, categories})
 
-    categories.forEach(category =>{
+    movieCategory.innerHTML = "";
 
-        const movieCategory = document.querySelector('#genresID .main-nav-categories--ul' );
+    categories.forEach(category =>{
+        
         
         const categoryDiv = document.createElement('div');
         categoryDiv.classList.add("ul-div--category");
         
-        const categoryTitle = document.createElement('p');
+        const categoryTitle = document.createElement('h5');
         categoryTitle.classList.add("category-tilte");
+        categoryTitle.addEventListener('click', () => {
+            location.hash = `#category=${category.id}-${category.name}`; 
+        } )
         categoryTitle.setAttribute('id', category.name);
 
         const categoryname = document.createTextNode(category.name)
@@ -165,3 +174,91 @@ async function genresMovies() {
     })
 }
 
+async function getMovieByCategory(id) {
+    const { data } = await api('discover/movie',{
+        params: {
+            with_genres: id,
+        }
+    });
+
+    const movieCategories = data.results;
+
+    categoryPageMovie.innerHTML = "";
+
+    movieCategories.forEach(movieCategory => {
+
+       const movieContainer = document.createElement('div');
+       movieContainer.classList.add('category-img');
+
+        const movieImg = document.createElement('img');
+        movieImg.classList.add("movie-img");
+        movieImg.setAttribute('alt', movieCategory .title);
+        movieImg.setAttribute('src',  'https://image.tmdb.org/t/p/w300/' + movieCategory.poster_path);
+        
+        
+        movieContainer.appendChild(movieImg);
+        categoryPageMovie.appendChild(movieContainer);
+    });
+}
+
+
+async function genresTV() {
+    const { data } = await api('genre/tv/list');
+
+    const categories = data.genres;
+    console.log({data, categories})
+
+    movieCategory.innerHTML = "";
+
+    categories.forEach(category =>{
+        
+        
+        const categoryDiv = document.createElement('div');
+        categoryDiv.classList.add("ul-div--category");
+        
+        const categoryTitle = document.createElement('h5');
+        categoryTitle.classList.add("category-tilte");
+        categoryTitle.addEventListener('click', () => {
+            location.hash = `#category=${category.id}-${category.name} + category.id`; 
+        } )
+        categoryTitle.setAttribute('id', category.name);
+
+        const categoryname = document.createTextNode(category.name)
+        
+        
+        categoryDiv.appendChild(categoryTitle);
+
+        categoryTitle.appendChild(categoryname);
+
+        movieCategory.appendChild(categoryDiv);
+
+    })
+}
+
+
+async function getTvByCategory(id) {
+    const { data } = await api('discover/tv',{
+        params: {
+            with_genres: id,
+        }
+    });
+
+    const tvCategories = data.results;
+
+    categoryPageTv.innerHTML = "";
+
+    tvCategories.forEach(tvCategory => {
+
+       const movieContainer = document.createElement('div');
+       movieContainer.classList.add('category-img');
+
+        const movieImg = document.createElement('img');
+        movieImg.classList.add("movie-img");
+        movieImg.setAttribute('alt', tvCategory.title);
+        movieImg.setAttribute('src',  'https://image.tmdb.org/t/p/w300/' + tvCategory.poster_path);
+        
+        
+        movieContainer.appendChild(movieImg);
+        categoryPageTv.appendChild(movieContainer);
+    });
+}

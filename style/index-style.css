@@ -3,10 +3,10 @@
     box-sizing: border-box;
 }
 
-#backgroundinactive1, #backgroundinactive2{
-    display: none;
+body{
+    overflow-x: hidden;
 }
-
+ 
 header{
     width: 100%;
     min-width: 320px;
@@ -136,12 +136,9 @@ header .header-nav .header-nav--ul{
     border: none;
     outline: none;
     padding-left: 10px;
+    background-color: papayawhip;
     border-radius: 10px 0 0 10px;;
 }
-
-.header-nav .search-container input[type="search"]::-webkit-search-cancel-button {
-    -webkit-appearance: searchfield-cancel-button;
-  }
 
 .header-nav .search-container button{
     position: absolute;
@@ -297,13 +294,15 @@ main .main-section--nav{
 }
 
 
-.main-section--nav .section-nav-categories{
+main .main-section--nav .section-nav-categories{
     width: 80%;
-    margin: 20px auto;
+    margin: 10px auto;
 }
 
-.main-section--nav .section-nav-categories .main-nav-categories--ul{
+main .main-section--nav .section-nav-categories{
     display: flex;
+    height: 90px;
+    align-items: center;
     gap: 30px;
     flex-wrap: nowrap;
     overflow-x: scroll ;
@@ -311,27 +310,55 @@ main .main-section--nav{
     scroll-snap-type:x proximity;
 }
 
-.main-section--nav .section-nav-categories .main-nav-categories--ul::-webkit-scrollbar{
+.main-section--nav .section-nav-categories::-webkit-scrollbar{
     width: 0;
 }
 
-.main-section--nav .section-nav-categories .main-nav-categories--ul .ul-div--category{
+.main-section--nav .section-nav-categories .ul-div--category{
     background-color: papayawhip;
-    min-width: 100px;
-    height: 30px;
-    border-radius: 15px;
+    min-width: 130px;
+    height: 40px;
+    border-radius: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.main-section--nav .section-nav-categories .main-nav-categories--ul .ul-div--category .category-tilte{
+.main-section--nav .section-nav-categories .ul-div--category .category-tilte{
     text-decoration: none;
     color: #000000;
+    cursor: pointer;
+    text-overflow: ellipsis;
 }
 
-.main-section--nav .section-nav-categories .main-nav-categories--ul .ul-div--category:hover{
+.main-section--nav .section-nav-categories .ul-div--category:hover{
     transform: scale(1.1);
+}
+
+main .category-page-section{
+    width: 90%;
+    height: auto;
+    margin: 40px auto;
+}
+
+
+main .category-page-section .main--category-section{
+    display: flex;
+    height: auto;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 10px;
+}
+
+main .category-page-section .main--category-section .category-img{
+    width: 120px;
+    height: 210px;
+    object-fit: cover;
+    margin: 10px 0;
+}
+main .category-page-section .main--category-section .category-img img{
+    width: 100%;
+    height: 100%;
 }
 
 /* Main done */

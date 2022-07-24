@@ -12,7 +12,7 @@
     <title>Sam Movies</title>
 </head>
 <body>
-    <header class="" id="header">
+    <header id="header">
         <span class="span-wall">
             <section class="header-section--wall wall-section1" id="header-background1">
                 <div class="header-wall wall1">
@@ -46,9 +46,9 @@
         <nav class="header-nav" id="header-nav--section">
             <ul class="header-nav--ul">
                 <li class="category-nav"><a href="#Categories">Categories</a></li>
-                <li class="home-nav inactive" id="homeTT"><a href="#">Home</a></li>
-                <li class="movie-nav " id="movieTT"><a href="">Movies</a></li>
-                <li class="tv-nav " id="tvTT"><a href="">TV Shows</a></li>
+                <li class="home-nav inactive" id="homeTT"><a href="#home">Home</a></li>
+                <li class="movie-nav " id="movieTT"><a href="#movie">Movies</a></li>
+                <li class="tv-nav " id="tvTT"><a href="#tvshow=">TV Shows</a></li>
             </ul>
 
             <form class="search-container " id="header-form--section">
@@ -59,12 +59,12 @@
     </header>
 
     <main>
-        <section class="home-page--section">
-            <section class="main-section--Top-movies section-Top" id="Top-movie-section">
+        <section class="home-page--section" id="home">
+            <section class="main-section--Top-movies section-Top">
                 <h2>Popular movies</h2>
     
-                <section class="top10--container">
-                    <article class="top-movie--article ok">
+                <section class="top10--container" id="Top-movie-section">
+                    <article class="top-movie--article ok inactive">
                         <div class="background-movie wall2" id="backgroundDiv">
                             <button onclick="vermasbtn()">Ver Más</button>
                         </div>
@@ -72,42 +72,43 @@
                 </section>
             </section>
            
-            <section class="main-section--Top-series section-Top" id="tvshow-section">
+            <section class="main-section--Top-series section-Top">
                 <h2>Popular series</h2>
-                <section class="top10--container">
+                <section class="top10--container" id="tvshow-section">
                 </section>
             </section>
             
-            <section class="main-section--Top-upcoming section-Top" id="upcoming-section">
+            <section class="main-section--Top-upcoming section-Top">
                 <h2>Upcoming movies</h2>
     
-                <section class="top10--container">
+                <section class="top10--container" id="upcoming-section">
                 </section>
             </section>
     
-          <section class="section-Top" id="tv-upcoming--section">
+          <section class="section-Top">
                 <h2>Series on air</h2>
     
-                <section class="top10--container">
+                <section class="top10--container" id="tv-upcoming--section">
                 </section>
             </section>
-    
-        
-           <section class="main-section--nav" id="categories">
-            <h4>Categories</h4>
-            <nav class="section-nav-categories" id="genresID">
-    
-                <ul class="main-nav-categories--ul">
-                    
-                </ul>
-            </nav>
-        </section>
     
         </section>
 
+    <!-- Search seaction -->
+
+    <section class="search-page--search inactive">
+        <section class="main-section--Top-movies section-Top main--search-section" id="description-section">
+            <h3>Doctor Strange</h3>
+            <div class="search-img">
+                <img src="https://i.pinimg.com/564x/96/eb/ee/96ebeeb354ff0d0e6ae8cfeb51712149.jpg" alt="" srcset="">
+                <p><a href="#">Ver la descripción</a></p>
+            </div>
+        </section>
+    </section>
+
     <!-- Movies Pages Views-->
-        <section class="movie-page--section inactive">
-            <section class="main-section--Top-movies section-Top " id="all-top-movie-section">
+        <section class="movie-page--section inactive order-page" id="movie">
+            <section class="page-section section-Top " id="all-top-movie-section">
                 <h2>All Trending Movies</h2>
         
                 <section class=" top--moviepages">
@@ -122,7 +123,7 @@
                 <p><a href="">More</a></p>
             </section>
             
-            <section class="main-section--Top-movies section-Top" id="all-upcoming-movie-section">
+            <section class="page-section  section-Top" id="all-upcoming-movie-section">
                 <h2>All Upcoming Movies</h2>
         
                 <section class=" top--moviepages">
@@ -138,7 +139,7 @@
                 <p><a href="">More</a></p>
             </section>
             
-            <section class="main-section--Top-movies section-Top" id="best-rated-movie-section">
+            <section class="page-section  section-Top" id="best-rated-movie-section">
                 <h2>Best Rated Movies</h2>
         
                 <section class=" top--moviepages">
@@ -152,15 +153,13 @@
         
                 <p><a href="">More</a></p>
             </section>
-            
-       
        
         </section>
 
     <!-- Series Pages Views-->
 
-        <section class="tv-page--section inactive">
-            <section class="main-section--Top-movies section-Top" id="all-top-tv">
+        <section class="tv-page--section inactive  order-page" id="tvshow">
+            <section class="page-section section-Top" id="all-top-tv">
                 <h2>All Trending Tv Shows</h2>
         
                 <section class=" top--moviepages">
@@ -175,7 +174,7 @@
                 <p><a href="">More</a></p>
             </section>
             
-            <section class="main-section--Top-movies section-Top" id="best-rated-tv">
+            <section class="page-section section-Top" id="best-rated-tv">
                 <h2>Best Rated TV Shows</h2>
         
                 <section class=" top--moviepages">
@@ -190,7 +189,7 @@
                 <p><a href="">More</a></p>
             </section>
             
-            <section class="main-section--Top-movies section-Top" id="last-tv">
+            <section class="page-section  section-Top" id="last-tv">
                 <h2>Last TV Shows</h2>
         
                 <section class=" top--moviepages">
@@ -205,7 +204,7 @@
                 <p><a href="">More</a></p>
             </section>
             
-            <section class="main-section--Top-movies section-Top" id="on-air-tv">
+            <section class="page-section section-Top" id="on-air-tv">
                 <h2>On Air</h2>
         
                 <section class=" top--moviepages">
@@ -220,7 +219,7 @@
                 <p><a href="">More</a></p>
             </section>
             
-            <section class="main-section--Top-movies section-Top" id="on-airT-tv">
+            <section class="page-section section-Top" id="on-airT-tv">
                 <h2>On Air Today</h2>
         
                 <section class=" top--moviepages">
@@ -238,7 +237,7 @@
 
     <!-- Description Pages views -->
 
-    <section class="description-page--section inactive">
+    <section class="description-page--section inactive" id="description">
         <section class="main-section--Top-movies section-Top main--description-section" id="description-section">
             <div class="description-img">
                 <img src="https://i.pinimg.com/564x/96/eb/ee/96ebeeb354ff0d0e6ae8cfeb51712149.jpg" alt="" srcset="">
@@ -259,7 +258,37 @@
         </section>
     </section>
 
-    </main>
+
+    <!-- Category -->
+    <section class="main-section--nav category-active"  id="categories">
+        <h4>Categories</h4>
+        <nav class="section-nav-categories" id="genresID">
+
+            <ul class="main-nav-categories--ul">
+                
+            </ul>
+        </nav>    
+    </section>
+
+     <!-- Category page -->
+
+    <section class="category-page-section" id="category-page">
+        <h3 class="category-title">Name</h3>
+        
+        <section class=" main--category-section" id="category-page-movie--section">
+           
+        </section>
+        
+        <section class=" main--category-section" id="category-page-tv--section">
+           
+        </section>
+        
+    </section>
+
+</main>
+
+
+
 
     <footer>
         <nav class="footer-nav">
