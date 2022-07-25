@@ -180,6 +180,32 @@ main .section-Top h2{
     
 }
 
+main .section-Top .movie-header--container .moreOp a{
+    text-decoration: none;
+    color: brown ;
+}
+main .section-Top .movie-header--container .moreOp:hover{
+    text-decoration: underline;
+    transform: scale(1.1);
+}
+
+ main .section-Top .movie-header--container{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+ }
+
+ main .vermasbtn{
+    width: 100%;
+    height: 30px;
+    margin: auto;
+    border: none;
+    border-radius: 4px;
+    background-color: whitesmoke;
+    color:brown;
+ }
+
 main .section-Top .top10--container{
     height: 320px;
     display: flex;
@@ -290,49 +316,59 @@ main .section-Top .top10--container article .text-container p a:hover{
 
 main .main-section--nav{
     width: 90%;
-    margin: 0 auto;
+    margin: 20px auto;
 }
 
+main  .moviescategoriesOp h4{
+    text-align: center;
+    background-color:burlywood;
+}
 
-main .main-section--nav .section-nav-categories{
-    width: 80%;
-    margin: 10px auto;
+main .TvscategoriesOp{
+    margin-top: 30px;
+}
+
+main .TvscategoriesOp h4{
+    text-align: center;
+    background-color: pink;
 }
 
 main .main-section--nav .section-nav-categories{
-    display: flex;
-    height: 90px;
-    align-items: center;
-    gap: 30px;
-    flex-wrap: nowrap;
-    overflow-x: scroll ;
+    width: 100%;
+    height: auto;
+    margin-top: 40px;
+    /* overflow-x: scroll ;
     overscroll-behavior-x: contain;
-    scroll-snap-type:x proximity;
+    scroll-snap-type:x proximity; */
+}
+.main-section--nav .section-nav-categories .main-nav-categories--ul{
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr ;
+    grid-template-rows: 1fr;
+    gap: 30px;
+    text-align: center;
+    padding: 0;
+    margin: 0 auto;
+
+    /* display: flex;
+    gap: 30px;
+    padding: 10px 10px;
+    flex-wrap: wrap; */
 }
 
-.main-section--nav .section-nav-categories::-webkit-scrollbar{
-    width: 0;
-}
-
-.main-section--nav .section-nav-categories .ul-div--category{
-    background-color: papayawhip;
-    min-width: 130px;
-    height: 40px;
-    border-radius: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.main-section--nav .section-nav-categories .ul-div--category .category-tilte{
-    text-decoration: none;
+.main-section--nav .section-nav-categories .main-nav-categories--ul .category-tilte{
     color: #000000;
     cursor: pointer;
     text-overflow: ellipsis;
+    list-style: none;
+    font-size: 13px;
 }
 
-.main-section--nav .section-nav-categories .ul-div--category:hover{
+.main-section--nav .section-nav-categories .main-nav-categories--ul .category-tilte:hover{
     transform: scale(1.1);
+    color: grey;
+    text-decoration: underline;
 }
 
 main .category-page-section{
@@ -346,6 +382,8 @@ main .category-page-section .main--category-section{
     display: flex;
     height: auto;
     flex-wrap: wrap;
+    justify-content: center;
+    align-items: center ;
     gap: 30px;
     margin-top: 10px;
 }

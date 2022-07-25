@@ -14,7 +14,8 @@ const navSection =  document.querySelector('#header-nav--section');
  const trendingSeries = document.querySelector("#tvshow-section");
  const upcomingMoviePreview = document.querySelector("#upcoming-section");
  const categoryNav = document.querySelector("#categories");
- const movieCategory = document.querySelector('#genresID');
+ const movieCategory = document.querySelector('#genresMovieID');
+ const TvCategory = document.querySelector('#genresTvID');
  const trendingSeries_OnAir = document.querySelector('#tv-upcoming--section');
  const categoryPageMovie = document.querySelector('#category-page-movie--section');
  const categoryPageTv = document.querySelector('#category-page-tv--section');
@@ -25,14 +26,16 @@ const navSection =  document.querySelector('#header-nav--section');
 
 
 //  Movie Pages
+ const newMoviePage = document.querySelector("#all-new-movie-section");
  const TrendingMoviePage = document.querySelector("#all-top-movie-section");
  const upcomingMoviePage = document.querySelector("#all-upcoming-movie-section");
  const bestRatedMoviePage = document.querySelector("#best-rated-movie-section");
  
 //  TV
+// const LatestTv_Page = document.querySelector("#all-new-Tv-section");
  const trendingShow_TvPage = document.querySelector("#all-top-tv");
  const bestRatedTvPage = document.querySelector("#best-rated-tv");
- const lastShow_TvPage = document.querySelector("#last-tv");
+ const onAir_TvPage = document.querySelector("#last-tv");
  const onAirToday_TvPage = document.querySelector("#on-airT-tv");
  
  //  Description
@@ -53,3 +56,8 @@ const navSection =  document.querySelector('#header-nav--section');
   const search_section = document.querySelector(".search-page--search");
   const genresOp = document.querySelector(".main-section--nav");
   const title = document.querySelector('.category-title');
+  const categoriesPage_section = document.querySelector(".categoriesView--section");
+    const moviesCategoriesOp = document.querySelector(".moviescategoriesOp");
+    const tvsCategoriesOp = document.querySelector(".TvscategoriesOp");
+
+    const ejemplo = document.querySelector('#popularmovie');

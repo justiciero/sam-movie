@@ -11,13 +11,13 @@ main{
    flex-direction: column;
 }
 
-main .category-active{
+/* main .category-active{
     order: 1;
 }
 
 main .order-page{
     order: 2;
-}
+} */
 
 .active-size-search{
     height: 20vh;
@@ -85,12 +85,12 @@ main .page-section  .top--moviepages{
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 5px;
 
 }
 
 main .section-Top .top--moviepages .top-mp--article{
-    width: 40%;
+    width: 100px;
     height: 100%;
     min-height: 160px;
 }

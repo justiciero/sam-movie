@@ -1,4 +1,3 @@
-
 const api = axios.create({
     baseURL: 'https://api.themoviedb.org/3/', 
     Headers: {
@@ -9,7 +8,7 @@ const api = axios.create({
     },
 })
 
-async function getTrendingMovies(id) {
+async function getTrendingMovies() {
     const { data } = await api('trending/movie/day');
 
     const movies = data.results;
@@ -24,58 +23,16 @@ async function getTrendingMovies(id) {
         
         const movieContainerpic = document.createElement('picture');
         movieContainerpic.classList.add('image--Top-movie');
-        
-        const movieTextContainer = document.createElement('div');
-        movieTextContainer.classList.add('text-container');
-        
-        const movieTextContainerH3 = document.createElement('h3');
-        const movieTextContainerP = document.createElement('p');
-
+    
         const movieImg = document.createElement('img');
         movieImg.classList.add("movie-img");
         movieImg.setAttribute('alt', movie.title);
         movieImg.setAttribute('src',  'https://image.tmdb.org/t/p/w300/' + movie.poster_path);
         
-        
-        movieTextContainer.appendChild(movieTextContainerH3);
-        movieTextContainer.appendChild(movieTextContainerP);
         movieContainer.appendChild(movieContainerpic);
         movieContainerpic.appendChild(movieImg);
-        movieContainerpic.appendChild(movieTextContainer);
         trendingMovie.appendChild(movieContainer);
 
-    });
-}
-
-
-async function getupcomingmovies() {
-    const { data } = await api('movie/upcoming');
-
-    const upcomingMovies = data.results;
-
-    upcomingMoviePreview.innerHTML = "";
-
-    upcomingMovies.forEach(upcomingMovie => {
-
-
-        const upcomingmovieContainer = document.createElement('article');
-        upcomingmovieContainer.classList.add('top-movie--article');
-        
-        const  upcomingMovieContainerpic = document.createElement('picture');
-        upcomingMovieContainerpic.classList.add('image--Top-movie');
-        
-        const movieTextContainer = document.createElement('div');
-        movieTextContainer.classList.add('text-container');
-
-        const movieImg = document.createElement('img');
-        movieImg.classList.add("movie-img");
-        movieImg.setAttribute('alt', upcomingMovie.title);
-        movieImg.setAttribute('src',  'https://image.tmdb.org/t/p/w300/' + upcomingMovie.poster_path);
-        
-        
-        upcomingmovieContainer.appendChild(upcomingMovieContainerpic);
-        upcomingMovieContainerpic.appendChild(movieImg);
-        upcomingMoviePreview.appendChild(upcomingmovieContainer);
     });
 };
 
@@ -106,7 +63,38 @@ async function getTrendingSeries() {
         trendingSeries.appendChild(topSeriesContainer);
 
     })
-}
+};
+
+
+async function getupcomingmovies() {
+    const { data } = await api('movie/upcoming')
+    const upcomingMovies = data.results;
+
+    upcomingMoviePreview.innerHTML = "";
+
+    upcomingMovies.forEach(upcomingMovie => {
+
+
+        const upcomingmovieContainer = document.createElement('article');
+        upcomingmovieContainer.classList.add('top-movie--article');
+        
+        const  upcomingMovieContainerpic = document.createElement('picture');
+        upcomingMovieContainerpic.classList.add('image--Top-movie');
+        
+        const movieTextContainer = document.createElement('div');
+        movieTextContainer.classList.add('text-container');
+
+        const movieImg = document.createElement('img');
+        movieImg.classList.add("movie-img");
+        movieImg.setAttribute('alt', upcomingMovie.title);
+        movieImg.setAttribute('src',  'https://image.tmdb.org/t/p/w300/' + upcomingMovie.poster_path);
+        
+        
+        upcomingmovieContainer.appendChild(upcomingMovieContainerpic);
+        upcomingMovieContainerpic.appendChild(movieImg);
+        upcomingMoviePreview.appendChild(upcomingmovieContainer);
+    });
+};
 
 async function showOnAir() {
     const { data } = await api('tv/airing_today');
@@ -138,7 +126,7 @@ async function showOnAir() {
         trendingSeries_OnAir.appendChild(topSeriesContainer_OnAir);
 
     })
-}
+};
 
 
 async function genresMovies() {
@@ -152,10 +140,7 @@ async function genresMovies() {
     categories.forEach(category =>{
         
         
-        const categoryDiv = document.createElement('div');
-        categoryDiv.classList.add("ul-div--category");
-        
-        const categoryTitle = document.createElement('h5');
+        const categoryTitle = document.createElement('li');
         categoryTitle.classList.add("category-tilte");
         categoryTitle.addEventListener('click', () => {
             location.hash = `#category=${category.id}-${category.name}`; 
@@ -163,13 +148,10 @@ async function genresMovies() {
         categoryTitle.setAttribute('id', category.name);
 
         const categoryname = document.createTextNode(category.name)
-        
-        
-        categoryDiv.appendChild(categoryTitle);
 
         categoryTitle.appendChild(categoryname);
 
-        movieCategory.appendChild(categoryDiv);
+        movieCategory.appendChild(categoryTitle);
 
     })
 }
@@ -208,15 +190,11 @@ async function genresTV() {
     const categories = data.genres;
     console.log({data, categories})
 
-    movieCategory.innerHTML = "";
+    TvCategory.innerHTML = "";
 
     categories.forEach(category =>{
-        
-        
-        const categoryDiv = document.createElement('div');
-        categoryDiv.classList.add("ul-div--category");
-        
-        const categoryTitle = document.createElement('h5');
+             
+        const categoryTitle = document.createElement('li');
         categoryTitle.classList.add("category-tilte");
         categoryTitle.addEventListener('click', () => {
             location.hash = `#category=${category.id}-${category.name} + category.id`; 
@@ -226,11 +204,9 @@ async function genresTV() {
         const categoryname = document.createTextNode(category.name)
         
         
-        categoryDiv.appendChild(categoryTitle);
-
         categoryTitle.appendChild(categoryname);
 
-        movieCategory.appendChild(categoryDiv);
+        TvCategory.appendChild(categoryTitle);
 
     })
 }

@@ -47,7 +47,7 @@
             <ul class="header-nav--ul">
                 <li class="category-nav"><a href="#Categories">Categories</a></li>
                 <li class="home-nav inactive" id="homeTT"><a href="#home">Home</a></li>
-                <li class="movie-nav " id="movieTT"><a href="#movie">Movies</a></li>
+                <li class="movie-nav " id="movieTT"><a href="#movie=">Movies</a></li>
                 <li class="tv-nav " id="tvTT"><a href="#tvshow=">TV Shows</a></li>
             </ul>
 
@@ -61,32 +61,41 @@
     <main>
         <section class="home-page--section" id="home">
             <section class="main-section--Top-movies section-Top">
-                <h2>Popular movies</h2>
+                
+                <section class="movie-header--container">
+                    <h2>Popular movies</h2>
+                    <p class="moreOp"><a href="#movie=popularmovie">Más Peli</a></p>
+                </section>
     
                 <section class="top10--container" id="Top-movie-section">
-                    <article class="top-movie--article ok inactive">
-                        <div class="background-movie wall2" id="backgroundDiv">
-                            <button onclick="vermasbtn()">Ver Más</button>
-                        </div>
-                    </article>
                 </section>
+
             </section>
            
             <section class="main-section--Top-series section-Top">
-                <h2>Popular series</h2>
+                <section class="movie-header--container">
+                    <h2>Popular Tv Show</h2>
+                    <p class="moreOp"><a href="#tvshow=">Más Tv</a></p>
+                </section>
                 <section class="top10--container" id="tvshow-section">
                 </section>
             </section>
             
             <section class="main-section--Top-upcoming section-Top">
-                <h2>Upcoming movies</h2>
+                <section class="movie-header--container">
+                    <h2>Upcoming Movie</h2>
+                    <p class="moreOp"><a href="#movie=">Más Peli</a></p>
+                </section>
     
                 <section class="top10--container" id="upcoming-section">
                 </section>
             </section>
     
           <section class="section-Top">
-                <h2>Series on air</h2>
+            <section class="movie-header--container">
+                <h2>Show on Air</h2>
+                <p class="moreOp"><a href="#tvshow=">Más Tv</a></p>
+            </section>
     
                 <section class="top10--container" id="tv-upcoming--section">
                 </section>
@@ -107,51 +116,41 @@
     </section>
 
     <!-- Movies Pages Views-->
-        <section class="movie-page--section inactive order-page" id="movie">
-            <section class="page-section section-Top " id="all-top-movie-section">
-                <h2>All Trending Movies</h2>
-        
-                <section class=" top--moviepages">
-                    
-                    <article class="top-mp--article" >
-                        <picture class="image--Top-movie">
-                           <img src="https://i.pinimg.com/564x/96/eb/ee/96ebeeb354ff0d0e6ae8cfeb51712149.jpg" alt="" class="movie-img">
-                        </picture>
-                    </article>
-                </section>
-        
-                <p><a href="">More</a></p>
-            </section>
+        <section class="movie-page--section inactive order-page" id="moviePage">
             
-            <section class="page-section  section-Top" id="all-upcoming-movie-section">
-                <h2>All Upcoming Movies</h2>
+            <section class="page-section  section-Top" >
+                <h2>Now Playing in Brazil</h2>
         
-                <section class=" top--moviepages">
-                    
-                    <article class="top-mp--article" >
-                        <picture class="image--Top-movie">
-                           <img src="https://i.pinimg.com/564x/96/eb/ee/96ebeeb354ff0d0e6ae8cfeb51712149.jpg" alt="" class="movie-img">
-                        </picture>
-                    </article>
-        
+                <section class=" top--moviepages" id="all-new-movie-section">
                 </section>
                 
-                <p><a href="">More</a></p>
+                <button class="vermasbtn" id="topmovieBycountrybtn">Ver Más</button>
+            </section>
+
+            <section class="page-section section-Top" id="popularmovie">
+                <h2>Popular Movies</h2>
+        
+                <section class=" top--moviepages" id="all-top-movie-section">
+                </section>
+                <button class="vermasbtn" id="topmoviebtn">Ver Más</button>
             </section>
             
-            <section class="page-section  section-Top" id="best-rated-movie-section">
+            <section class="page-section  section-Top" >
+                <h2>All Upcoming Movies</h2>
+        
+                <section class=" top--moviepages" id="all-upcoming-movie-section">
+                </section>
+                
+                <button class="vermasbtn" id="movieupcomingbtn">Ver Más</button>
+            </section>
+            
+            <section class="page-section  section-Top" >
                 <h2>Best Rated Movies</h2>
         
-                <section class=" top--moviepages">
-                    
-                    <article class="top-mp--article" >
-                        <picture class="image--Top-movie">
-                           <img src="https://i.pinimg.com/564x/96/eb/ee/96ebeeb354ff0d0e6ae8cfeb51712149.jpg" alt="" class="movie-img">
-                        </picture>
-                    </article>
+                <section class=" top--moviepages" id="best-rated-movie-section">
                 </section>
         
-                <p><a href="">More</a></p>
+                <button class="vermasbtn" id="bestratedmoviebtn">Ver Más</button>
             </section>
        
         </section>
@@ -159,10 +158,21 @@
     <!-- Series Pages Views-->
 
         <section class="tv-page--section inactive  order-page" id="tvshow">
-            <section class="page-section section-Top" id="all-top-tv">
+
+            <!-- <section class="page-section  section-Top" >
+                <h2>On Air in Brazil</h2>
+        
+                <section class=" top--moviepages" id="all-new-Tv-section">
+                </section>
+                
+                <p><a href="">More</a></p>
+            </section> -->
+
+
+            <section class="page-section section-Top" >
                 <h2>All Trending Tv Shows</h2>
         
-                <section class=" top--moviepages">
+                <section class=" top--moviepages" id="all-top-tv">
                     
                     <article class="top-mp--article" >
                         <picture class="image--Top-movie">
@@ -171,13 +181,13 @@
                     </article>
                 </section>
         
-                <p><a href="">More</a></p>
+                <button class="vermasbtn" id="popularshowbtn">Ver Más</button>
             </section>
             
-            <section class="page-section section-Top" id="best-rated-tv">
+            <section class="page-section section-Top" >
                 <h2>Best Rated TV Shows</h2>
         
-                <section class=" top--moviepages">
+                <section class="top--moviepages" id="best-rated-tv">
                     
                     <article class="top-mp--article" >
                         <picture class="image--Top-movie">
@@ -186,13 +196,13 @@
                     </article>
                 </section>
         
-                <p><a href="">More</a></p>
+                <button class="vermasbtn" id="bestRatedbtn">Ver Más</button>
             </section>
             
-            <section class="page-section  section-Top" id="last-tv">
-                <h2>Last TV Shows</h2>
+            <section class="page-section  section-Top" >
+                <h2>On air</h2>
         
-                <section class=" top--moviepages">
+                <section class=" top--moviepages" id="last-tv">
                     
                     <article class="top-mp--article" >
                         <picture class="image--Top-movie">
@@ -201,28 +211,13 @@
                     </article>
                 </section>
         
-                <p><a href="">More</a></p>
+                <button class="vermasbtn" id="showOnAirbtn">Ver Más</button>
             </section>
             
-            <section class="page-section section-Top" id="on-air-tv">
-                <h2>On Air</h2>
-        
-                <section class=" top--moviepages">
-                    
-                    <article class="top-mp--article" >
-                        <picture class="image--Top-movie">
-                           <img src="https://i.pinimg.com/564x/96/eb/ee/96ebeeb354ff0d0e6ae8cfeb51712149.jpg" alt="" class="movie-img">
-                        </picture>
-                    </article>
-                </section>
-        
-                <p><a href="">More</a></p>
-            </section>
-            
-            <section class="page-section section-Top" id="on-airT-tv">
+            <section class="page-section section-Top" >
                 <h2>On Air Today</h2>
         
-                <section class=" top--moviepages">
+                <section class=" top--moviepages" id="on-airT-tv">
                     
                     <article class="top-mp--article" >
                         <picture class="image--Top-movie">
@@ -231,7 +226,7 @@
                     </article>
                 </section>
         
-                <p><a href="">More</a></p>
+                <button class="vermasbtn" id="showOnAirTbtn">Ver Más</button>
             </section>
         </section>
 
@@ -258,19 +253,7 @@
         </section>
     </section>
 
-
-    <!-- Category -->
-    <section class="main-section--nav category-active"  id="categories">
-        <h4>Categories</h4>
-        <nav class="section-nav-categories" id="genresID">
-
-            <ul class="main-nav-categories--ul">
-                
-            </ul>
-        </nav>    
-    </section>
-
-     <!-- Category page -->
+     <!-- Category page views-->
 
     <section class="category-page-section" id="category-page">
         <h3 class="category-title">Name</h3>
@@ -285,10 +268,31 @@
         
     </section>
 
+    <!-- Categories Section view -->
+    <section class="inactive categoriesView--section" id="categories">
+       
+        <section class="main-section--nav moviescategoriesOp">
+            <h4>Movie's Categories</h4>
+            <nav class="section-nav-categories">
+
+                <div class="main-nav-categories--ul" id="genresMovieID">
+                    
+                </div>
+            </nav>    
+        </section>
+     
+        <section class="main-section--nav TvscategoriesOp">
+            <h4>Tv's Categories</h4>
+            <nav class="section-nav-categories">
+
+                <div class="main-nav-categories--ul" id="genresTvID">
+                    
+                </div>
+            </nav>    
+        </section>
+    </section>
+
 </main>
-
-
-
 
     <footer>
         <nav class="footer-nav">
@@ -316,6 +320,8 @@
     <script src="./src/secrets.js"></script>
     <script src="./src/node.js"></script>
     <script src="./src/main.js"></script>
+    <script src="./src/moviePage.js"></script>
+    <script src="./src/tvPage.js"></script>
     <script src="./src/nav.js"></script>
 </body>
 </html>
