@@ -20,7 +20,6 @@ topmovieBycountrybtn.addEventListener('click', ()=>{
     allNewMovie_PageMovie();
 });
 
-
 async function allTrending_PageMovie() {
     const { data } = await api('trending/movie/day',{
         params: {

@@ -33,7 +33,52 @@ function createPost(movies, container){
         });
 }
     
-//  Api Main
+
+function  createGenericsPost(movies, container){
+
+    container.innerHTML = "";
+
+    movies.forEach(movieCategory => {
+
+        const movieContainer = document.createElement('div');
+        movieContainer.classList.add('search-img');
+ 
+         const movieImg = document.createElement('img');
+         movieImg.classList.add("movie-img");
+         movieImg.setAttribute('alt', movieCategory .title);
+         movieImg.setAttribute('src',  'https://image.tmdb.org/t/p/w300/' + movieCategory.poster_path);
+         
+         
+         movieContainer.appendChild(movieImg);
+         container.appendChild(movieContainer);
+     });
+}
+
+
+function createPostForPages(movies, container){
+    container.innerHTML = "";
+  
+    movies.forEach(movie => {
+  
+  
+      const movieContainer = document.createElement('article');
+      movieContainer.classList.add('top-mp--article');
+      
+      const movieContainerpic = document.createElement('picture');
+      movieContainerpic.classList.add('image--Top-movie');
+  
+      const movieImg = document.createElement('img');
+      movieImg.classList.add("movie-img");
+      movieImg.setAttribute('alt', movie.title);
+      movieImg.setAttribute('src',  'https://image.tmdb.org/t/p/w300/' + movie.poster_path);
+      
+      movieContainer.appendChild(movieContainerpic);
+      movieContainerpic.appendChild(movieImg);
+      container.appendChild(movieContainer);
+  });
+  }
+  
+  //  Api Main
 
 async function getTrendingMovies() {
     const { data } = await api('trending/movie/day');
@@ -129,25 +174,8 @@ async function getMovieByCategory(id) {
 
     const movieCategories = data.results;
 
-    categoryPageMovie.innerHTML = "";
-
-    movieCategories.forEach(movieCategory => {
-
-       const movieContainer = document.createElement('div');
-       movieContainer.classList.add('category-img');
-
-        const movieImg = document.createElement('img');
-        movieImg.classList.add("movie-img");
-        movieImg.setAttribute('alt', movieCategory .title);
-        movieImg.setAttribute('src',  'https://image.tmdb.org/t/p/w300/' + movieCategory.poster_path);
-        
-        
-        movieContainer.appendChild(movieImg);
-        categoryPageMovie.appendChild(movieContainer);
-    });
+    createGenericsPost(movieCategories, categoryPageMovie)
 }
-
-
 async function getTvByCategory(id) {
     const { data } = await api('discover/tv',{
         params: {
@@ -155,21 +183,30 @@ async function getTvByCategory(id) {
         }
     });
 
-    const tvCategories = data.results;
-    categoryPageTv.innerHTML = "";
+    const movieCategories = data.results;
 
-    tvCategories.forEach(movieCategory => {
-
-       const movieContainer = document.createElement('div');
-       movieContainer.classList.add('category-img');
-
-        const movieImg = document.createElement('img');
-        movieImg.classList.add("movie-img");
-        movieImg.setAttribute('alt', movieCategory .title);
-        movieImg.setAttribute('src',  'https://image.tmdb.org/t/p/w300/' + movieCategory.poster_path);
-        
-        
-        movieContainer.appendChild(movieImg);
-        categoryPageTv.appendChild(movieContainer);
-    });
+    createGenericsPost(movieCategories, categoryPageTv)
 }
+
+    async function getMultiSearch(query) {
+    const { data } = await api('search/multi', {
+        params: {
+          query: query,
+          'page' : pagina,
+        },
+    });
+    console.log(pagina)
+
+    const tvCategories = data.results;
+
+    createGenericsPost(tvCategories, searchdetails_page);
+}
+btnDespues.addEventListener('click', ()=>{
+    pagina +=1;
+    getMultiSearch();
+    console.log(pagina)
+});
+btnAntes.addEventListener('click', ()=>{
+    pagina -=1;
+    getMultiSearch();
+});

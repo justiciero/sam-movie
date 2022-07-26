@@ -52,7 +52,9 @@
             </ul>
 
             <form class="search-container " id="header-form--section">
-                <input type="text" placeholder="Buscar...">
+            
+                <input type="text" placeholder="Buscar..." id="searchInput">
+                
                 <button id="btnsearch"></button>
             </form>
         </nav>
@@ -64,7 +66,7 @@
                 
                 <section class="movie-header--container">
                     <h2>Popular movies</h2>
-                    <p class="moreOp"><a href="#movie=popularmovie">Más Peli</a></p>
+                    <p class="moreOp"><a href="#movie=">Más Peli</a></p>
                 </section>
     
                 <section class="top10--container" id="Top-movie-section">
@@ -106,12 +108,11 @@
     <!-- Search seaction -->
 
     <section class="search-page--search inactive">
-        <section class="main-section--Top-movies section-Top main--search-section" id="description-section">
-            <h3>Doctor Strange</h3>
-            <div class="search-img">
-                <img src="https://i.pinimg.com/564x/96/eb/ee/96ebeeb354ff0d0e6ae8cfeb51712149.jpg" alt="" srcset="">
-                <p><a href="#">Ver la descripción</a></p>
-            </div>
+        <section class="main-section--Top-movies main--search-section .top--moviepages" id="search-section">
+        </section>
+        <section class="btnSection">
+            <button id="btnAntes">Volver</button>
+            <button id="btnDespues">Cargar más</button>
         </section>
     </section>
 
@@ -158,16 +159,6 @@
     <!-- Series Pages Views-->
 
         <section class="tv-page--section inactive  order-page" id="tvshow">
-
-            <!-- <section class="page-section  section-Top" >
-                <h2>On Air in Brazil</h2>
-        
-                <section class=" top--moviepages" id="all-new-Tv-section">
-                </section>
-                
-                <p><a href="">More</a></p>
-            </section> -->
-
 
             <section class="page-section section-Top" >
                 <h2>All Trending Tv Shows</h2>
@@ -240,14 +231,14 @@
 
      <!-- Category page views-->
 
-    <section class="category-page-section" id="category-page">
+    <section class="page-section" id="category-page">
         <h3 class="category-title">Name</h3>
         
-        <section class=" main--category-section" id="category-page-movie--section">
+        <section class="top--moviepages" id="category-page-movie--section">
            
         </section>
         
-        <section class=" main--category-section" id="category-page-tv--section">
+        <section class="top--moviepages" id="category-page-tv--section">
            
         </section>
         
@@ -256,7 +247,7 @@
     <!-- Categories Section view -->
     <section class="inactive categoriesView--section" id="categories">
        
-        <section class="main-section--nav moviescategoriesOp">
+        <section class="main-section--nav moviescategoriesOp" >
             <h4>Movie's Categories</h4>
             <nav class="section-nav-categories">
 

@@ -6,6 +6,8 @@ const headerSectionBack = document.querySelector('.span-wall');
 const formSection = document.querySelector("#header-form--section");
 
 const searchbtn = document.querySelector('#btnsearch');
+
+const searchInput = document.querySelector('#searchInput')
 const navSection =  document.querySelector('#header-nav--section');
 
 // Main
@@ -38,8 +40,8 @@ const navSection =  document.querySelector('#header-nav--section');
  const onAir_TvPage = document.querySelector("#last-tv");
  const onAirToday_TvPage = document.querySelector("#on-airT-tv");
  
- //  Description
- const details = document.querySelector("#description-section");
+ //  search
+ const searchdetails_page = document.querySelector("#search-section");
  
 
  //class
@@ -57,32 +59,9 @@ const navSection =  document.querySelector('#header-nav--section');
   const genresOp = document.querySelector(".main-section--nav");
   const title = document.querySelector('.category-title');
   const categoriesPage_section = document.querySelector(".categoriesView--section");
-    const moviesCategoriesOp = document.querySelector(".moviescategoriesOp");
-    const tvsCategoriesOp = document.querySelector(".TvscategoriesOp");
+  const moviesCategoriesOp = document.querySelector(".moviescategoriesOp");
+  const tvsCategoriesOp = document.querySelector(".TvscategoriesOp");
 
-    const ejemplo = document.querySelector('#popularmovie');
-
+const ejemplo = document.querySelector('#popularmovie');
 
   // Utils Tv & Movie Pages
-function createPostForPages(movies, container){
-  container.innerHTML = "";
-
-  movies.forEach(movie => {
-
-
-    const movieContainer = document.createElement('article');
-    movieContainer.classList.add('top-mp--article');
-    
-    const movieContainerpic = document.createElement('picture');
-    movieContainerpic.classList.add('image--Top-movie');
-
-    const movieImg = document.createElement('img');
-    movieImg.classList.add("movie-img");
-    movieImg.setAttribute('alt', movie.title);
-    movieImg.setAttribute('src',  'https://image.tmdb.org/t/p/w300/' + movie.poster_path);
-    
-    movieContainer.appendChild(movieContainerpic);
-    movieContainerpic.appendChild(movieImg);
-    container.appendChild(movieContainer);
-});
-}

@@ -1,5 +1,5 @@
 searchbtn.addEventListener('click', () =>{
-    location.hash = '#search=';
+    location.hash = '#search=' + searchInput.value.replaceAll(' ','-');
 });
 
 
@@ -151,15 +151,14 @@ function searchOp(){
     description_section.classList.add('inactive');
     headerSection.classList.add('active-size');
     formSection.classList.remove('inactive');
-    categoryNav.classList.remove('inactive');
     category_section.classList.add('inactive');
-    moviesCategoriesOp.classList.remove('inactive');
-    tvsCategoriesOp.classList.remove('inactive');
+    categoryNav.classList.add('inactive');
+    moviesCategoriesOp.classList.add('inactive')
+    tvsCategoriesOp.classList.add('inactive')
     
-    console.log('Search');
-
-    genresMovies();
-    genresTV();
+    // ['#Search', 'robot]
+    const [_, query] = location.hash.split('=');
+    getMultiSearch(query);
 };
 function movietvDeatailsPage(){
     headerSection.classList.add('active-size');

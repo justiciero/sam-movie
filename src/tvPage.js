@@ -23,7 +23,6 @@ async function bestRated_PageTv() {
     });
 
     const movies = data.results;
-    console.log({data})
 
     createPostForPages(movies, bestRatedTvPage);
 };
