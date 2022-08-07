@@ -8,10 +8,11 @@ async function allTrending_PageTv() {
 
     const movies = data.results;
 
-    createPostForPages(movies, trendingShow_TvPage);
+    createPostForTvPages(movies, trendingShow_TvPage);
 };
 popularshowbtn.addEventListener('click', ()=>{
     pagina2 +=1;
+    
     allTrending_PageTv();
 });
 
@@ -24,7 +25,7 @@ async function bestRated_PageTv() {
 
     const movies = data.results;
 
-    createPostForPages(movies, bestRatedTvPage);
+    createPostForTvPages(movies, bestRatedTvPage);
 };
 bestRatedbtn.addEventListener('click', ()=>{
     pagina +=1;
@@ -41,7 +42,7 @@ async function onAir_PageTv() {
 
     const upcomingMovies = data.results;
 
-    createPostForPages(upcomingMovies, onAir_TvPage);
+    createPostForTvPages(upcomingMovies, onAir_TvPage);
 };
 showOnAirbtn.addEventListener('click', ()=>{
     pagina2 +=1;
@@ -59,7 +60,7 @@ async function onAirToday_PageTv() {
 
     const upcomingMovies = data.results;
 
-    createPostForPages(upcomingMovies, onAirToday_TvPage);
+    createPostForTvPages(upcomingMovies, onAirToday_TvPage);
 };
 showOnAirTbtn.addEventListener('click', ()=>{
     pagina +=1;

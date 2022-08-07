@@ -43,11 +43,17 @@
             </section>
         </span>
         
+        <section class="description-img--section inactive">
+            <div class="movie-img" id="img-description">
+                <img src="" alt="" class="movie-des-img">
+              </div>
+        </section>
+
         <nav class="header-nav" id="header-nav--section">
             <ul class="header-nav--ul">
                 <li class="category-nav"><a href="#Categories">Categories</a></li>
                 <li class="home-nav inactive" id="homeTT"><a href="#home">Home</a></li>
-                <li class="movie-nav " id="movieTT"><a href="#movie=">Movies</a></li>
+                <li class="movie-nav " id="movieTT"><a href="#movies=">Movies</a></li>
                 <li class="tv-nav " id="tvTT"><a href="#tvshow=">TV Shows</a></li>
             </ul>
 
@@ -60,7 +66,7 @@
         </nav>
     </header>
 
-    <main>
+    <main >
         <section class="home-page--section" id="home">
             <section class="main-section--Top-movies section-Top">
                 
@@ -166,9 +172,6 @@
                 <section class=" top--moviepages" id="all-top-tv">
                     
                     <article class="top-mp--article" >
-                        <picture class="image--Top-movie">
-                           <img src="https://i.pinimg.com/564x/96/eb/ee/96ebeeb354ff0d0e6ae8cfeb51712149.jpg" alt="" class="movie-img">
-                        </picture>
                     </article>
                 </section>
         
@@ -208,26 +211,46 @@
 
     <!-- Description Pages views -->
 
-    <section class="description-page--section inactive" id="description">
-        <section class="main-section--Top-movies section-Top main--description-section" id="description-section">
-            <div class="description-img">
-                <img src="https://i.pinimg.com/564x/96/eb/ee/96ebeeb354ff0d0e6ae8cfeb51712149.jpg" alt="" srcset="">
-            </div>
-    
-            <section class="description-data">
-                <span>
-                    <h2>Thor: love and thunder </h2>
-                </span>
-                    <p>20/07/2022</p>
-            </section>
-    
-            <article class="description-article">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore beatae soluta similique fuga animi, voluptates culpa, nisi ea numquam sunt, aspernatur enim hic sequi eos veritatis cum maxime. Maiores, rerum.
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem modi harum quo reprehenderit quia, totam possimus similique, quasi nobis, facere numquam veniam eaque ab? Rem eligendi molestiae dolore perferendis culpa!
+    <section class="description-page--section inactive" id="description"> 
+        <section class="description-text--section">
+            <div class="description-movies">
+                <h1 id="description-title"></h1>
+
+                <nav class="nav-description" id="category-list">
+                    <ul class="movie-gen">
+                    </ul>
+
+                    <p id="description-average"></p>
+                </nav> 
+
+                <p id="description-overview">
+                    
                 </p>
-            </article>
+
+                <div class="movie-cast-container">
+                    <section class="actor-section">
+                        <h4>Actors</h4>
+                        
+                        <div class="movie-cast" id="casting-id">
+                        </div>
+                    </section>
+
+                    <section class="director-section">
+                        <h4>Director</h4>
+                        <div class="movie-cast" id="directing-id">
+                        </div>
+                    </section>
+                </div>
+            </div>
+
+            <section class="similar-movies">
+                <h5>Similar</h5>
+                <div class="similar-movies--container" id="similar-movies">
+                </div>
+            </section>
         </section>
-    </section>
+
+</section>
 
      <!-- Category page views-->
 
@@ -270,8 +293,8 @@
 
 </main>
 
-    <footer>
-        <nav class="footer-nav">
+    <footer class="footer-section">
+        <nav class="footer-nav ">
             <section class="footer-nav--social_media">
                 <a href=""><div class="insta social"></div></a>
 
@@ -290,6 +313,8 @@
                 </ul>
             </section>
         </nav>
+
+
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>

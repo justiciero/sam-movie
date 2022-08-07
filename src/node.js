@@ -9,6 +9,7 @@ const searchbtn = document.querySelector('#btnsearch');
 
 const searchInput = document.querySelector('#searchInput')
 const navSection =  document.querySelector('#header-nav--section');
+const imgheader = document.querySelector('.description-img--section');
 
 // Main
 
@@ -42,6 +43,17 @@ const navSection =  document.querySelector('#header-nav--section');
  
  //  search
  const searchdetails_page = document.querySelector("#search-section");
+
+//  Description
+ const title_description = document.querySelector('#description-title');
+ const average_description = document.querySelector('#description-average');
+ const overview_description = document.querySelector('#description-overview');
+ const categoryList_description = document.querySelector('#category-list .movie-gen');
+ const img_description = document.querySelector('#img-description');
+ const similar_movie = document.querySelector('#similar-movies');
+ const castingMovie = document.querySelector('#casting-id');
+ const directorMovie = document.querySelector('#directing-id');
+ const  movie_img = document.querySelector('.movie-des-img');
  
 
  //class
@@ -62,6 +74,6 @@ const navSection =  document.querySelector('#header-nav--section');
   const moviesCategoriesOp = document.querySelector(".moviescategoriesOp");
   const tvsCategoriesOp = document.querySelector(".TvscategoriesOp");
 
-const ejemplo = document.querySelector('#popularmovie');
-
   // Utils Tv & Movie Pages
+
+  const footerPage = document.querySelector('.footer-section');

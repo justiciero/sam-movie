@@ -8,7 +8,7 @@ window.addEventListener('hashchange', navigator, false);
 
 function navigator() {
 
-    if(location.hash.startsWith('#movie=')) {
+    if(location.hash.startsWith('#movies=')) {
         moviesPages();
     } 
     else if(location.hash.startsWith('#search=')) {
@@ -17,8 +17,10 @@ function navigator() {
     else if(location.hash.startsWith('#tvshow=')){
         TVPages();
     } 
-    else if(location.hash.startsWith('#description')){
-        movietvDeatailsPage();
+    else if(location.hash.startsWith('#movie=')){
+        movieDeatailsPage();
+    } else if(location.hash.startsWith('#tv=')){
+        tvDeatailsPage();
     } else if (location.hash.startsWith('#category=')){
         categorypages_view()
     } else if(location.hash.startsWith('#Categories')){
@@ -45,7 +47,8 @@ function categoryPage(){
     search_section.classList.add('inactive');
     headerSection.classList.remove('active-size-search');
     category_section.classList.add('inactive');
-
+    imgheader.classList.add('inactive');
+    footerPage.classList.remove('inactive');
     console.log('Categories')
     genresMovies();
     genresTV();
@@ -70,7 +73,8 @@ function homePage(){
     categoriesPage_section.classList.remove('inactive');
     moviesCategoriesOp.classList.remove('inactive');
     tvsCategoriesOp.classList.add('inactive');
-
+    imgheader.classList.add('inactive');
+    footerPage.classList.remove('inactive');
     getupcomingmovies();
     getTrendingMovies();
     getTrendingSeries();
@@ -97,6 +101,8 @@ function moviesPages(){
     moviesCategoriesOp.classList.remove('inactive');
     tvsCategoriesOp.classList.add('inactive');
     // categoryPageTv.classList.add('inactive')
+    imgheader.classList.add('inactive');
+    footerPage.classList.remove('inactive');
 
     console.log('Movies');
     allNewMovie_PageMovie();
@@ -127,6 +133,8 @@ function TVPages(){
     categoryPageTv.classList.remove('inactive');
     moviesCategoriesOp.classList.add('inactive');
     tvsCategoriesOp.classList.remove('inactive');
+    imgheader.classList.add('inactive');
+    footerPage.classList.remove('inactive');
     
     allTrending_PageTv();
     bestRated_PageTv();
@@ -155,12 +163,15 @@ function searchOp(){
     categoryNav.classList.add('inactive');
     moviesCategoriesOp.classList.add('inactive')
     tvsCategoriesOp.classList.add('inactive')
-    
+    imgheader.classList.add('inactive');
+    footerPage.classList.remove('inactive');
     // ['#Search', 'robot]
+    
     const [_, query] = location.hash.split('=');
     getMultiSearch(query);
 };
-function movietvDeatailsPage(){
+
+function movieDeatailsPage(){
     headerSection.classList.add('active-size');
     headerSectionBack.classList.add('inactiveback');
     formSection.classList.add('inactive');
@@ -178,14 +189,44 @@ function movietvDeatailsPage(){
     category_section.classList.add('inactive');
     moviesCategoriesOp.classList.remove('inactive');
     tvsCategoriesOp.classList.remove('inactive');
+    imgheader.classList.remove('inactive'); 
+    footerPage.classList.add('inactive');
+    
 
-    const [_,categoryData] = location.hash.split('=');
-    const [categoryId,categoryName] = categoryData.split('-');
-    title.innerHTML = categoryName;
+    // ['#movie', 'id]
+    const [_, movieId] = location.hash.split('=');
+    getMovieById(movieId);
 
-    getMovieByCategory(categoryId);
-    genresMovies();
-    genresTV();
+    getSimilarMovie(movieId);
+    getMovieCast(movieId);
+};
+
+function tvDeatailsPage(){
+    headerSection.classList.add('active-size');
+    headerSectionBack.classList.add('inactiveback');
+    formSection.classList.add('inactive');
+    homeOp.classList.remove('inactive');
+    categoryOp.classList.add('inactive');
+    tvOp.classList.remove('inactive-color');
+    home_section.classList.add('inactive');
+    moviePage_section.classList.add('inactive');
+    tvPage_section.classList.add('inactive');
+    description_section.classList.remove('inactive');
+    search_section.classList.add('inactive');
+    formSection.classList.add('inactive');
+    headerSection.classList.remove('active-size-search');
+    categoryNav.classList.add('inactive');
+    category_section.classList.add('inactive');
+    moviesCategoriesOp.classList.remove('inactive');
+    tvsCategoriesOp.classList.remove('inactive');
+    imgheader.classList.remove('inactive'); 
+    footerPage.classList.add('inactive');
+
+    // ['#movie', 'id]
+    const [_, tvId] = location.hash.split('=');
+    getTvById(tvId);
+    getSimilarShow(tvId);
+    getTVCast(tvId)
 };
 
 function categorypages_view (){
@@ -198,6 +239,8 @@ function categorypages_view (){
     headerSection.classList.remove('active-size-search');
     headerSectionBack.classList.remove('inactiveback');
     headerSection.classList.remove('active-size');
+    imgheader.classList.add('inactive');
+    footerPage.classList.add('inactive');
 
 
     const [_, categoryData] = location.hash.split('=');

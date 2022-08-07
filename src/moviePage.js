@@ -9,11 +9,11 @@ async function allNewMovie_PageMovie() {
             'region' : 'BR' 
         }
     });
-
+    
     const movies = data.results;
     console.log({data})
 
-    createPostForPages(movies, newMoviePage);
+    createPostForMoviePages(movies, newMoviePage);
 };
 topmovieBycountrybtn.addEventListener('click', ()=>{
     pagina +=1;
@@ -29,7 +29,7 @@ async function allTrending_PageMovie() {
 
     const movies = data.results;
 
-        createPostForPages(movies, TrendingMoviePage);
+    createPostForMoviePages(movies, TrendingMoviePage);
 };
 topmoviebtn.addEventListener('click', ()=>{
     pagina2 +=1;
@@ -45,7 +45,7 @@ async function allUpcoming_PageMovie() {
 
     const upcomingMovies = data.results;
 
-    createPostForPages(upcomingMovies, upcomingMoviePage);
+    createPostForMoviePages(upcomingMovies, upcomingMoviePage);
 };
 movieupcomingbtn.addEventListener('click', ()=>{
     pagina +=1;
@@ -62,7 +62,7 @@ async function allTopRated_PageMovie() {
 
     const upcomingMovies = data.results;
 
-    createPostForPages(upcomingMovies, bestRatedMoviePage);
+    createPostForMoviePages(upcomingMovies, bestRatedMoviePage);
 };
 bestratedmoviebtn.addEventListener('click', ()=>{
     pagina +=1;
