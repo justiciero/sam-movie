@@ -6,7 +6,7 @@
     width: 100%;
     height: 150px;
     min-width: 320px;
-    max-width: 430px;
+    max-width: 768px;
 }
 
 main{
@@ -47,6 +47,24 @@ header .inactiveback{
 main .search-page--search {
     margin: 10px 0;
     height: auto;
+}
+
+.search-movie--loading{
+    background-color: #EEEAF2;
+    border-radius: 8px;
+    width: 100px;
+    min-width: 100px;
+    max-width: 100px;
+    height: 160px;
+    margin-bottom: 15px;
+    animation: loading-skeleton infinite 1.5s;
+}
+
+.search-movie--loading:nth-child(2){
+    animation-delay: 2s;
+}
+.search-movie--loading:nth-child(3){
+    animation-delay: 2s;
 }
 
 /* seach page done */
@@ -91,7 +109,7 @@ header .description-img--section{
  
  .description-img--section .movie-img{
      width: 100%;
-     max-width: 430px;
+     max-width: 768px;
      height: 400px;
      
  }
@@ -110,24 +128,23 @@ main .description-page--section{
     margin-top: 200px;
 }
 
-.description-text--section
 .description-page--section .description-text--section{
+    width: 100%;
     height: auto;
     margin: 0 auto;
 }
 
 .description-page--section .description-text--section .description-movies{
     width: 100%;
-    max-width: 430px;
     height: auto;
-    margin: 0 auto;
   
 }
 
 .description-page--section .description-text--section .description-movies .nav-description{
+    width: 100%;
     display: flex;
-    justify-content: space-between;
     gap: 10px;
+    justify-content: space-between;
 }
 
 .description-page--section .description-text--section .description-movies .nav-description ul{
@@ -143,6 +160,10 @@ main .description-page--section{
     list-style: none;
     font-size: 12px;
     cursor: pointer;
+}
+
+.description-overview{
+    text-align: center;
 }
 
 .description-page--section .description-text--section .movie-cast-container{
@@ -190,6 +211,18 @@ main .description-page--section{
     border-radius:  20px;
 }
 
+.similar-movie--loading{
+    background-color: #EEEAF2;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    animation: loading-skeleton infinite 1.5s;
+}
 
+.similar-movie--loading:nth-child(2){
+    animation-delay: 2s;
+}
+.similar-movie--loading:nth-child(3){
+    animation-delay: 2s;   
+}
 
 /* Movie Description Done */

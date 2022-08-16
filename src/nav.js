@@ -168,7 +168,10 @@ function searchOp(){
     // ['#Search', 'robot]
     
     const [_, query] = location.hash.split('=');
-    getMultiSearch(query);
+    getMovieSearch(query);
+
+    const [__, query2] = location.hash.split('=');
+    getTvSearch(query2);
 };
 
 function movieDeatailsPage(){

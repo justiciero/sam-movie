@@ -236,18 +236,67 @@ async function getTvByCategory(id) {
 
     createGenericsPost(movieCategories, categoryPageTv)
 }
-
-    async function getMultiSearch(query) {
-    const { data } = await api('search/multi', {
+async function getMovieSearch(query) {
+    const { data } = await api('search/movie', {
         params: {
           query: query,
           'page' : pagina,
         },
     });
 
+    const movieCategories = data.results;
+
+    searchMoviedetails_page.innerHTML = "";
+
+    movieCategories.forEach(movieCategory => {
+
+        const movieContainer = document.createElement('div');
+        movieContainer.classList.add('search-img');
+        movieContainer.addEventListener('click', () =>{
+            location.hash = '#movie=' + movieCategory.id;
+        });
+        
+ 
+         const movieImg = document.createElement('img');
+         movieImg.classList.add("movie-img");
+         movieImg.setAttribute('alt', movieCategory .title);
+         movieImg.setAttribute('src',  'https://image.tmdb.org/t/p/w300/' + movieCategory.poster_path);
+         
+         
+         movieContainer.appendChild(movieImg);
+         searchMoviedetails_page.appendChild(movieContainer);
+     });
+}
+async function getTvSearch(query2) {
+    const { data } = await api('search/tv', {
+        params: {
+          query: query2,
+          'page' : pagina,
+        },
+    });
+
     const tvCategories = data.results;
 
-    createGenericsPost(tvCategories, searchdetails_page);
+    searchTvdetails_page.innerHTML = "";
+
+    tvCategories.forEach(movieCategory => {
+
+        const movieContainer = document.createElement('div');
+        movieContainer.classList.add('search-img');
+        movieContainer.addEventListener('click', () =>{
+            location.hash = '#tv=' + movieCategory.id;
+        });
+        
+ 
+         const movieImg = document.createElement('img');
+         movieImg.classList.add("movie-img");
+         movieImg.setAttribute('alt', movieCategory .title);
+         movieImg.setAttribute('src',  'https://image.tmdb.org/t/p/w300/' + movieCategory.poster_path);
+         
+         
+         movieContainer.appendChild(movieImg);
+         searchTvdetails_page.appendChild(movieContainer);
+     });
 }
 
 async function getMovieById(id) {

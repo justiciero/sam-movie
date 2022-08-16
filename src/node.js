@@ -42,7 +42,9 @@ const imgheader = document.querySelector('.description-img--section');
  const onAirToday_TvPage = document.querySelector("#on-airT-tv");
  
  //  search
- const searchdetails_page = document.querySelector("#search-section");
+ const searchMoviedetails_page = document.querySelector("#searchMovie-section");
+ 
+ const searchTvdetails_page = document.querySelector("#searchTv-section");
 
 //  Description
  const title_description = document.querySelector('#description-title');
