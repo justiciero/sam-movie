@@ -49,6 +49,7 @@ function categoryPage(){
     category_section.classList.add('inactive');
     imgheader.classList.add('inactive');
     footerPage.classList.remove('inactive');
+    spinner.classList.add('inactive');
     console.log('Categories')
     genresMovies();
     genresTV();
@@ -75,6 +76,7 @@ function homePage(){
     tvsCategoriesOp.classList.add('inactive');
     imgheader.classList.add('inactive');
     footerPage.classList.remove('inactive');
+    spinner.classList.add('inactive');
     getupcomingmovies();
     getTrendingMovies();
     getTrendingSeries();
@@ -103,6 +105,7 @@ function moviesPages(){
     // categoryPageTv.classList.add('inactive')
     imgheader.classList.add('inactive');
     footerPage.classList.remove('inactive');
+    spinner.classList.add('inactive');
 
     console.log('Movies');
     allNewMovie_PageMovie();
@@ -135,6 +138,7 @@ function TVPages(){
     tvsCategoriesOp.classList.remove('inactive');
     imgheader.classList.add('inactive');
     footerPage.classList.remove('inactive');
+    spinner.classList.add('inactive');
     
     allTrending_PageTv();
     bestRated_PageTv();
@@ -165,6 +169,7 @@ function searchOp(){
     tvsCategoriesOp.classList.add('inactive')
     imgheader.classList.add('inactive');
     footerPage.classList.remove('inactive');
+    spinner.classList.add('inactive');
     // ['#Search', 'robot]
     
     const [_, query] = location.hash.split('=');
@@ -194,6 +199,7 @@ function movieDeatailsPage(){
     tvsCategoriesOp.classList.remove('inactive');
     imgheader.classList.remove('inactive'); 
     footerPage.classList.add('inactive');
+    spinner.classList.remove('inactive');
     
 
     // ['#movie', 'id]
@@ -224,6 +230,7 @@ function tvDeatailsPage(){
     tvsCategoriesOp.classList.remove('inactive');
     imgheader.classList.remove('inactive'); 
     footerPage.classList.add('inactive');
+    spinner.classList.remove('inactive');
 
     // ['#movie', 'id]
     const [_, tvId] = location.hash.split('=');
@@ -244,6 +251,7 @@ function categorypages_view (){
     headerSection.classList.remove('active-size');
     imgheader.classList.add('inactive');
     footerPage.classList.add('inactive');
+    spinner.classList.add('inactive');
 
 
     const [_, categoryData] = location.hash.split('=');

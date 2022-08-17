@@ -79,3 +79,5 @@ const imgheader = document.querySelector('.description-img--section');
   // Utils Tv & Movie Pages
 
   const footerPage = document.querySelector('.footer-section');
+
+  const spinner = document.querySelector('.loading-spinner');

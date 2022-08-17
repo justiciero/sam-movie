@@ -9,7 +9,17 @@ const api = axios.create({
 });
 
 // Utils
-function createMovieHomePost(movies, container){
+
+const lazyLoader = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if(entry.isIntersecting) {
+            const url = entry.target.getAttribute('data-src')
+            entry.target.setAttribute('src', url)
+        }
+    })
+})
+
+function createMovieHomePost(movies, container, lazyLoad = false){
     container.innerHTML = "";
     
     movies.forEach(movie => {
@@ -27,7 +37,17 @@ function createMovieHomePost(movies, container){
             const movieImg = document.createElement('img');
             movieImg.classList.add("movie-img");
             movieImg.setAttribute('alt', movie.title);
-            movieImg.setAttribute('src',  'https://image.tmdb.org/t/p/w300/' + movie.poster_path);
+            movieImg.setAttribute(lazyLoad ? 'data-src' : 'src',  'https://image.tmdb.org/t/p/w300/' + movie.poster_path);
+
+            movieImg.addEventListener('error', () => {
+                movieImg.setAttribute( 'src', 'https://static.platzi.com/static/images/error/img404.png',)
+            })
+
+
+
+            if(lazyLoad) {
+                lazyLoader.observe(movieImg)
+            }
             
             movieContainer.appendChild(movieContainerpic);
             movieContainerpic.appendChild(movieImg);
@@ -36,7 +56,7 @@ function createMovieHomePost(movies, container){
         });
 }
 
-function createTvHomePost(shows, container){
+function createTvHomePost(shows, container, lazyLoad = false){
     container.innerHTML = "";
     
     shows.forEach(show => {
@@ -54,7 +74,14 @@ function createTvHomePost(shows, container){
             const movieImg = document.createElement('img');
             movieImg.classList.add("movie-img");
             movieImg.setAttribute('alt', show.title);
-            movieImg.setAttribute('src',  'https://image.tmdb.org/t/p/w300/' + show.poster_path);
+            movieImg.setAttribute(lazyLoad ? 'data-src' : 'src',  'https://image.tmdb.org/t/p/w300/' + show.poster_path);
+            movieImg.addEventListener('error', () => {
+                movieImg.setAttribute( 'src', 'https://static.platzi.com/static/images/error/img404.png',)
+            })
+
+            if(lazyLoad) {
+                lazyLoader.observe(movieImg)
+            }
             
             movieContainer.appendChild(movieContainerpic);
             movieContainerpic.appendChild(movieImg);
@@ -63,7 +90,7 @@ function createTvHomePost(shows, container){
         });
 }
 
-function  createGenericsPost(movies, container){
+function  createGenericsPost(movies, container, lazyLoad = false){
 
     container.innerHTML = "";
 
@@ -79,7 +106,15 @@ function  createGenericsPost(movies, container){
          const movieImg = document.createElement('img');
          movieImg.classList.add("movie-img");
          movieImg.setAttribute('alt', movieCategory .title);
-         movieImg.setAttribute('src',  'https://image.tmdb.org/t/p/w300/' + movieCategory.poster_path);
+         movieImg.setAttribute(lazyLoad ? 'data-src' : 'src',  'https://image.tmdb.org/t/p/w300/' + movieCategory.poster_path);
+         movieImg.addEventListener('error', () => {
+            movieImg.setAttribute( 'src', 'https://static.platzi.com/static/images/error/img404.png',)
+        })
+
+
+         if(lazyLoad) {
+             lazyLoader.observe(movieImg)
+         }
          
          
          movieContainer.appendChild(movieImg);
@@ -88,7 +123,7 @@ function  createGenericsPost(movies, container){
 }
 
 
-function createPostForMoviePages(movies, container){
+function createPostForMoviePages(movies, container, lazyLoad = false){
     container.innerHTML = "";
   
     movies.forEach(movie => {
@@ -106,7 +141,14 @@ function createPostForMoviePages(movies, container){
       const movieImg = document.createElement('img');
       movieImg.classList.add("movie-img");
       movieImg.setAttribute('alt', movie.title);
-      movieImg.setAttribute('src',  'https://image.tmdb.org/t/p/w300/' + movie.poster_path);
+      movieImg.setAttribute(lazyLoad ? 'data-src' : 'src',  'https://image.tmdb.org/t/p/w300/' + movie.poster_path);
+      movieImg.addEventListener('error', () => {
+        movieImg.setAttribute( 'src', 'https://static.platzi.com/static/images/error/img404.png',)
+    })
+
+      if(lazyLoad) {
+          lazyLoader.observe(movieImg)
+      }
       
       movieContainer.appendChild(movieContainerpic);
       movieContainerpic.appendChild(movieImg);
@@ -114,7 +156,7 @@ function createPostForMoviePages(movies, container){
   });
   }
 
-  function createPostForTvPages(tvs, container){
+  function createPostForTvPages(tvs, container, lazyLoad = false){
     container.innerHTML = "";
   
     tvs.forEach(tv => {
@@ -132,7 +174,14 @@ function createPostForMoviePages(movies, container){
       const movieImg = document.createElement('img');
       movieImg.classList.add("movie-img");
       movieImg.setAttribute('alt', tv.title);
-      movieImg.setAttribute('src',  'https://image.tmdb.org/t/p/w300/' + tv.poster_path);
+      movieImg.setAttribute(lazyLoad ? 'data-src' : 'src',  'https://image.tmdb.org/t/p/w300/' + tv.poster_path);
+      movieImg.addEventListener('error', () => {
+        movieImg.setAttribute( 'src', 'https://static.platzi.com/static/images/error/img404.png',)
+    })
+
+      if(lazyLoad) {
+          lazyLoader.observe(movieImg)
+      }
       
       movieContainer.appendChild(movieContainerpic);
       movieContainerpic.appendChild(movieImg);
@@ -169,7 +218,7 @@ async function getTrendingMovies() {
     const { data } = await api('trending/movie/day');
 
     const movies = data.results;
-    createMovieHomePost(movies, trendingMovie);
+    createMovieHomePost(movies, trendingMovie, true);
 };
 
 async function getTrendingSeries() {
@@ -177,7 +226,7 @@ async function getTrendingSeries() {
 
     const trending_Series = data.results;
 
-    createTvHomePost(trending_Series, trendingSeries);
+    createTvHomePost(trending_Series, trendingSeries, true);
 };
 
 
@@ -185,7 +234,7 @@ async function getupcomingmovies() {
     const { data } = await api('movie/upcoming')
     const upcomingMovies = data.results;
 
-    createMovieHomePost(upcomingMovies, upcomingMoviePreview);
+    createMovieHomePost(upcomingMovies, upcomingMoviePreview, true);
 };
 
 async function showOnAir() {
@@ -193,7 +242,7 @@ async function showOnAir() {
 
     const onAir = data.results;
     
-    createTvHomePost(onAir, trendingSeries_OnAir);    
+    createTvHomePost(onAir, trendingSeries_OnAir, true);    
 };
 
 
@@ -223,7 +272,7 @@ async function getMovieByCategory(id) {
 
     const movieCategories = data.results;
 
-    createGenericsPost(movieCategories, categoryPageMovie)
+    createGenericsPost(movieCategories, categoryPageMovie, true)
 }
 async function getTvByCategory(id) {
     const { data } = await api('discover/tv',{
@@ -234,7 +283,7 @@ async function getTvByCategory(id) {
 
     const movieCategories = data.results;
 
-    createGenericsPost(movieCategories, categoryPageTv)
+    createGenericsPost(movieCategories, categoryPageTv, true)
 }
 async function getMovieSearch(query) {
     const { data } = await api('search/movie', {
@@ -260,7 +309,12 @@ async function getMovieSearch(query) {
          const movieImg = document.createElement('img');
          movieImg.classList.add("movie-img");
          movieImg.setAttribute('alt', movieCategory .title);
-         movieImg.setAttribute('src',  'https://image.tmdb.org/t/p/w300/' + movieCategory.poster_path);
+         movieImg.setAttribute('data-src',  'https://image.tmdb.org/t/p/w300/' + movieCategory.poster_path);
+         movieImg.addEventListener('error', () => {
+            movieImg.setAttribute( 'src', 'https://static.platzi.com/static/images/error/img404.png',)
+        })
+
+         lazyLoader.observe(movieImg)
          
          
          movieContainer.appendChild(movieImg);
@@ -291,8 +345,11 @@ async function getTvSearch(query2) {
          const movieImg = document.createElement('img');
          movieImg.classList.add("movie-img");
          movieImg.setAttribute('alt', movieCategory .title);
-         movieImg.setAttribute('src',  'https://image.tmdb.org/t/p/w300/' + movieCategory.poster_path);
-         
+         movieImg.setAttribute('data-src',  'https://image.tmdb.org/t/p/w300/' + movieCategory.poster_path);
+         movieImg.addEventListener('error', () => {
+            movieImg.setAttribute( 'src', 'https://static.platzi.com/static/images/error/img404.png',)
+        })
+         lazyLoader.observe(movieImg)
          
          movieContainer.appendChild(movieImg);
          searchTvdetails_page.appendChild(movieContainer);
@@ -341,8 +398,9 @@ async function getSimilarMovie(id) {
         const movieImg = document.createElement('img');
         movieImg.classList.add("similar-img");
         movieImg.setAttribute('alt', sMovie.title);
-        movieImg.setAttribute('src',  'https://image.tmdb.org/t/p/w300/' + sMovie.poster_path);
-        
+        movieImg.setAttribute('data-src',  'https://image.tmdb.org/t/p/w300/' + sMovie.poster_path);
+        lazyLoader.observe(movieImg)
+
         movieContainerpic.appendChild(movieImg);
         similar_movie.appendChild(movieContainerpic);
 
@@ -366,8 +424,8 @@ async function getSimilarShow(id) {
         const movieImg = document.createElement('img');
         movieImg.classList.add("similar-img");
         movieImg.setAttribute('alt', sMovie.title);
-        movieImg.setAttribute('src',  'https://image.tmdb.org/t/p/w300/' + sMovie.poster_path);
-        
+        movieImg.setAttribute('data-src',  'https://image.tmdb.org/t/p/w300/' + sMovie.poster_path);
+        lazyLoader.observe(movieImg)
         movieContainerpic.appendChild(movieImg);
         similar_movie.appendChild(movieContainerpic);
 
