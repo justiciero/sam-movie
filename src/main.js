@@ -398,7 +398,7 @@ async function getTvByCategory_scroll(id){
         }
         console.log(page)
 }
-
+ 
 
 
 async function getMovieSearch(query) {

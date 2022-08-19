@@ -266,6 +266,8 @@ function categorypages_view(){
     footerPage.classList.add('inactive');
     spinner.classList.add('inactive');
     genres.classList.add('inactive');
+    categoryPageMovie.classList.remove('inactive');
+    categoryPageTv.classList.add('inactive');
 
 
     const [_, categoryData] = location.hash.split('=');
@@ -290,7 +292,8 @@ function tvcategorypage_view() {
     footerPage.classList.add('inactive');
     spinner.classList.add('inactive');
     genres.classList.add('inactive');
-
+    categoryPageMovie.classList.add('inactive');
+    categoryPageTv.classList.remove('inactive');
 
     const [__, categoryData2] = location.hash.split('=');
     const [categoryId2, categoryName2] = categoryData2.split('-');
