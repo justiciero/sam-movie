@@ -89,12 +89,13 @@ main .page-section .top--moviepages, .search-page--search  .main--search-section
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 5px;
+    gap: 10px;
+    margin: 30px 0;
 
 }
 
 main .section-Top .top--moviepages .top-mp--article, .page-section .top--moviepages .search-img, .search-page--search  .main--search-section .search-img{
-    width: 100px;
+    width: 160px;
     height: 100%;
     min-height: 160px;
 }

@@ -1,3 +1,6 @@
+let page = 1;
+let infiniteScroll;
+
 searchbtn.addEventListener('click', () =>{
     location.hash = '#search=' + searchInput.value.replaceAll(' ','-');
 });
@@ -5,9 +8,13 @@ searchbtn.addEventListener('click', () =>{
 
 window.addEventListener('DOMContentLoaded', navigator, false);
 window.addEventListener('hashchange', navigator, false);
+window.addEventListener('scroll', infiniteScroll, false);
 
 function navigator() {
-
+    if(infiniteScroll){
+        window.removeEventListener('scroll', infiniteScroll, {passive: false});
+        infiniteScroll = undefined
+    }
     if(location.hash.startsWith('#movies=')) {
         moviesPages();
     } 
@@ -23,6 +30,8 @@ function navigator() {
         tvDeatailsPage();
     } else if (location.hash.startsWith('#category=')){
         categorypages_view()
+    } else if (location.hash.startsWith('#tv-category=')) {
+        tvcategorypage_view()
     } else if(location.hash.startsWith('#Categories')){
         categoryPage();
     }
@@ -31,6 +40,10 @@ function navigator() {
     }
 
     window.scrollTo(0, 0);
+
+    if(infiniteScroll) {
+        window.addEventListener('scroll', infiniteScroll, {passive: false});
+    }
 }
 
 function categoryPage(){
@@ -239,7 +252,7 @@ function tvDeatailsPage(){
     getTVCast(tvId)
 };
 
-function categorypages_view (){
+function categorypages_view(){
     category_section.classList.remove('inactive');
     home_section.classList.add('inactive');
     moviePage_section.classList.add('inactive');
@@ -252,16 +265,39 @@ function categorypages_view (){
     imgheader.classList.add('inactive');
     footerPage.classList.add('inactive');
     spinner.classList.add('inactive');
+    genres.classList.add('inactive');
 
 
     const [_, categoryData] = location.hash.split('=');
-
     const [categoryId, categoryName] = categoryData.split('-');
-
-  title.innerHTML = categoryName;
-
+    title.innerHTML = categoryName;
+    
     getMovieByCategory(categoryId);
-    getTvByCategory(categoryId);
-    genresMovies();
-    genresTV();
+
+    infiniteScroll = getMovieByCategory_scroll;
+}
+function tvcategorypage_view() {
+    category_section.classList.remove('inactive');
+    home_section.classList.add('inactive');
+    moviePage_section.classList.add('inactive');
+    tvPage_section.classList.add('inactive');
+    description_section.classList.add('inactive');
+    search_section.classList.add('inactive');
+    headerSection.classList.remove('active-size-search');
+    headerSectionBack.classList.remove('inactiveback');
+    headerSection.classList.remove('active-size');
+    imgheader.classList.add('inactive');
+    footerPage.classList.add('inactive');
+    spinner.classList.add('inactive');
+    genres.classList.add('inactive');
+
+
+    const [__, categoryData2] = location.hash.split('=');
+    const [categoryId2, categoryName2] = categoryData2.split('-');
+    title.innerHTML = categoryName2;
+
+    getTvByCategory(categoryId2);
+
+
+    infiniteScroll = getTvByCategory_scroll;
 }

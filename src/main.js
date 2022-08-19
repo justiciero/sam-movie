@@ -10,6 +10,7 @@ const api = axios.create({
 
 // Utils
 
+
 const lazyLoader = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
         if(entry.isIntersecting) {
@@ -90,9 +91,11 @@ function createTvHomePost(shows, container, lazyLoad = false){
         });
 }
 
-function  createGenericsPost(movies, container, lazyLoad = false){
+function  createGenericsMoviePost(movies, container, {lazyLoad = false, clean = true} = {}, ){
 
-    container.innerHTML = "";
+    if(clean){
+        container.innerHTML = "";
+    }
 
     movies.forEach(movieCategory => {
 
@@ -100,6 +103,40 @@ function  createGenericsPost(movies, container, lazyLoad = false){
         movieContainer.classList.add('search-img');
         movieContainer.addEventListener('click', () =>{
             location.hash = '#movie=' + movieCategory.id;
+        });
+        
+ 
+         const movieImg = document.createElement('img');
+         movieImg.classList.add("movie-img");
+         movieImg.setAttribute('alt', movieCategory .title);
+         movieImg.setAttribute(lazyLoad ? 'data-src' : 'src',  'https://image.tmdb.org/t/p/w300/' + movieCategory.poster_path);
+         movieImg.addEventListener('error', () => {
+            movieImg.setAttribute( 'src', 'https://static.platzi.com/static/images/error/img404.png',)
+        })
+
+
+         if(lazyLoad) {
+             lazyLoader.observe(movieImg)
+         }
+         
+         
+         movieContainer.appendChild(movieImg);
+         container.appendChild(movieContainer);
+     });
+}
+
+function  createGenericsTvPost(movies, container, {lazyLoad = false, clean = false} = {}, ){
+
+    if(clean){
+        container.innerHTML = "";
+    }
+
+    movies.forEach(movieCategory => {
+
+        const movieContainer = document.createElement('div');
+        movieContainer.classList.add('search-img');
+        movieContainer.addEventListener('click', () =>{
+            location.hash = '#tv=' + movieCategory.id;
         });
         
  
@@ -258,22 +295,69 @@ async function genresTV() {
     const { data } = await api('genre/tv/list');
 
     const categories = data.genres;
-   
-    createCategory(categories,TvCategory)
+    TvCategory.innerHTML = "";
+    categories.forEach(category =>{
+        
+        
+        const categoryTitle = document.createElement('li');
+        categoryTitle.classList.add("category-tilte");
+
+        categoryTitle.addEventListener('click', () => {
+            location.hash = `#tv-category=${category.id}-${category.name}`; 
+        } )
+        categoryTitle.setAttribute('id', category.name);
+
+        const categoryname = document.createTextNode(category.name)
+
+        categoryTitle.appendChild(categoryname);
+
+        TvCategory.appendChild(categoryTitle);
+
+    })
 }
 
 
 async function getMovieByCategory(id) {
+    
     const { data } = await api('discover/movie',{
         params: {
             with_genres: id,
-        }
+        },
     });
 
     const movieCategories = data.results;
 
-    createGenericsPost(movieCategories, categoryPageMovie, true)
+    createGenericsMoviePost(movieCategories, categoryPageMovie, {lazyLoad: true, clean: true})
 }
+
+ async function getMovieByCategory_scroll(id) {
+    const {
+        scrollTop,
+        scrollHeight,
+        clientHeight
+    } = document.documentElement;
+
+    const scrollIsBottom = (scrollTop + clientHeight) >= (scrollHeight - 15);
+
+    if (scrollIsBottom){
+        page++;
+        const { data } = await api('discover/movie',{
+            params: {
+                page,
+                 with_genres: id,
+            },
+        });
+        const movieCategories = data.results;
+
+        createGenericsMoviePost(
+            movieCategories,
+            categoryPageMovie,
+            { lazyLoad: true, clean: false },
+          );
+        }
+      console.log(page)
+}
+
 async function getTvByCategory(id) {
     const { data } = await api('discover/tv',{
         params: {
@@ -283,8 +367,40 @@ async function getTvByCategory(id) {
 
     const movieCategories = data.results;
 
-    createGenericsPost(movieCategories, categoryPageTv, true)
+    createGenericsTvPost(movieCategories, categoryPageTv, {lazyLoad: true, clean: true})
 }
+
+async function getTvByCategory_scroll(id){
+    const {
+        scrollTop,
+        scrollHeight,
+        clientHeight
+    } = document.documentElement;
+
+    const scrollIsBottom = (scrollTop + clientHeight) >= (scrollHeight - 15);
+
+    if (scrollIsBottom){
+        page++;
+        const { data } = await api('discover/tv',{
+            params: {
+                page,
+                with_genres: id,
+            }
+        });
+    
+        const movieCategories = data.results;
+
+        createGenericsTvPost(
+            movieCategories,
+            categoryPageTv,
+            { lazyLoad: true, clean: false },
+          );
+        }
+        console.log(page)
+}
+
+
+
 async function getMovieSearch(query) {
     const { data } = await api('search/movie', {
         params: {
