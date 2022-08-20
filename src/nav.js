@@ -187,9 +187,11 @@ function searchOp(){
     
     const [_, query] = location.hash.split('=');
     getMovieSearch(query);
-
-    const [__, query2] = location.hash.split('=');
-    getTvSearch(query2);
+    infiniteScroll = getMovieSearch_scroll(query)
+    
+    // const [__, query2] = location.hash.split('=');
+    // getTvSearch(query2);
+    // infiniteScroll = getTvSearch_scroll(query2)
 };
 
 function movieDeatailsPage(){
@@ -276,7 +278,7 @@ function categorypages_view(){
     
     getMovieByCategory(categoryId);
 
-    infiniteScroll = getMovieByCategory_scroll;
+    infiniteScroll = getMovieByCategory_scroll(categoryId);
 }
 function tvcategorypage_view() {
     category_section.classList.remove('inactive');
@@ -302,5 +304,5 @@ function tvcategorypage_view() {
     getTvByCategory(categoryId2);
 
 
-    infiniteScroll = getTvByCategory_scroll;
+    infiniteScroll = getTvByCategory_scroll(categoryId2);
 }
