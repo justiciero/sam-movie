@@ -8,6 +8,7 @@ searchbtn.addEventListener('click', () =>{
 
 window.addEventListener('DOMContentLoaded', navigator, false);
 window.addEventListener('hashchange', navigator, false);
+$(document.body).on('touchmove', infiniteScroll);
 window.addEventListener('scroll', infiniteScroll, false);
 
 function navigator() {
@@ -159,6 +160,7 @@ function TVPages(){
     onAirToday_PageTv()
     genresTV();
 };
+
 function searchOp(){
     
     search_section.classList.remove('inactive');
@@ -187,11 +189,11 @@ function searchOp(){
     
     const [_, query] = location.hash.split('=');
     getMovieSearch(query);
-    infiniteScroll = getMovieSearch_scroll(query)
+    infiniteScroll = getMovieSearch_scroll(query);
     
     // const [__, query2] = location.hash.split('=');
     // getTvSearch(query2);
-    // infiniteScroll = getTvSearch_scroll(query2)
+    // infiniteScroll = getTvSearch_scroll(query2);
 };
 
 function movieDeatailsPage(){

@@ -516,7 +516,6 @@ async function getTvSearch(query2) {
     const { data } = await api('search/tv', {
         params: {
           query: query2,
-          'page' : pagina,
         },
     });
 
