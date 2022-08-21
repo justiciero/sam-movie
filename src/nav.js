@@ -96,6 +96,7 @@ function homePage(){
     getTrendingSeries();
     showOnAir();
     genresMovies();
+    getLikedMovies();
     console.log("Home")
 };
 function moviesPages(){

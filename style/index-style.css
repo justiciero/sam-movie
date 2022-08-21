@@ -307,6 +307,33 @@ main .section-Top .top10--container article picture, .top--moviepages .top-mp--a
     width: 100%;
     height: 260px;
     object-fit: cover;
+    position: relative;
+}
+
+main .section-Top .top10--container article picture .movie-btn{
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    right: 10px;
+    margin-top: 10px;
+    background-image: url('/icon/unliked.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: none;
+    cursor: pointer;
+}
+
+main .section-Top .top10--container article picture .movie-btn:hover{
+    transform: scale(1.1);
+    background-image: url('/icon/liked.png');
+}
+
+main .section-Top .top10--container article picture .movie-btn--liked{
+    background-image: url('/icon/liked.png');
+}
+main .section-Top .top10--container article picture .movie-btn--liked:hover{
+    background-image: url('/icon/unliked.png');
 }
 
 main .section-Top .top10--container article picture img, .top--moviepages .top-mp--article .image--Top-movie .movie-img, .page-section .top--moviepages .search-img img, .search-page--search  .main--search-section .search-img img{

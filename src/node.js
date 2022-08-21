@@ -22,6 +22,8 @@ const imgheader = document.querySelector('.description-img--section');
  const trendingSeries_OnAir = document.querySelector('#tv-upcoming--section');
  const categoryPageMovie = document.querySelector('#category-page-movie--section');
  const categoryPageTv = document.querySelector('#category-page-tv--section');
+ const likedMovieTv = document.querySelector('#favourites-content');
+
 
  const category_section = document.querySelector('#category-page');
  
