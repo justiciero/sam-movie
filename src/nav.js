@@ -16,7 +16,7 @@ searchbtn.addEventListener('click', () =>{
 
 window.addEventListener('DOMContentLoaded', navigator, false);
 window.addEventListener('hashchange', navigator, false);
-$(document.body).on('touchmove', infiniteScroll);
+window.addEventListener('touchmove', infiniteScroll);
 window.addEventListener('scroll', infiniteScroll, false);
 
 function navigator() {
