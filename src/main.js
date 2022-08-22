@@ -72,6 +72,7 @@ function createMovieSearchPost(movies, container, {lazyLoad = false, clean = tru
         const movieBtn = document.createElement('button');
         movieBtn.classList.add('movie-btn');
         likedMoviesList()[movieCategory.id] && movieBtn.classList.add('movie-btn--liked');
+
         movieBtn.addEventListener('click', () =>{
             movieBtn.classList.toggle('movie-btn--liked');
             likeMovie(movieCategory);
@@ -234,9 +235,6 @@ function  createGenericsMoviePost(movies, container, {lazyLoad = false, clean = 
 
         const movieContainer = document.createElement('div');
         movieContainer.classList.add('search-img');
-        movieContainer.addEventListener('click', () =>{
-            location.hash = '#movie=' + movieCategory.id;
-        });
         
  
          const movieImg = document.createElement('img');
@@ -246,6 +244,23 @@ function  createGenericsMoviePost(movies, container, {lazyLoad = false, clean = 
          movieImg.addEventListener('error', () => {
             movieImg.setAttribute( 'src', 'https://static.platzi.com/static/images/error/img404.png',)
         })
+
+        movieImg.addEventListener('click', () =>{
+            location.hash = '#movie=' + movieCategory.id;
+        });
+        
+        const movieBtn = document.createElement('button');
+        movieBtn.classList.add('movie-btn');
+        likedMoviesList()[movieCategory.id] && movieBtn.classList.add('movie-btn--liked');
+        
+        movieBtn.addEventListener('click', () =>{
+            movieBtn.classList.toggle('movie-btn--liked');
+            likeMovie(movieCategory);
+            getLikedMovies();
+
+        });
+
+        movieContainer.appendChild(movieBtn)
 
 
          if(lazyLoad) {
@@ -268,19 +283,30 @@ function  createGenericsTvPost(movies, container, {lazyLoad = false, clean = fal
 
         const movieContainer = document.createElement('div');
         movieContainer.classList.add('search-img');
-        movieContainer.addEventListener('click', () =>{
-            location.hash = '#tv=' + movieCategory.id;
-        });
         
- 
-         const movieImg = document.createElement('img');
-         movieImg.classList.add("movie-img");
-         movieImg.setAttribute('alt', movieCategory .title);
+        
+        const movieImg = document.createElement('img');
+        movieImg.classList.add("movie-img");
+        movieImg.setAttribute('alt', movieCategory .title);
          movieImg.setAttribute(lazyLoad ? 'data-src' : 'src',  'https://image.tmdb.org/t/p/w300/' + movieCategory.poster_path);
          movieImg.addEventListener('error', () => {
             movieImg.setAttribute( 'src', 'https://static.platzi.com/static/images/error/img404.png',)
         })
+        movieImg.addEventListener('click', () =>{
+            location.hash = '#tv=' + movieCategory.id;
+        });
+        
+        const movieBtn = document.createElement('button');
+        movieBtn.classList.add('movie-btn');
+        likedMoviesList()[movieCategory.id] && movieBtn.classList.add('movie-btn--liked');
+        
+        movieBtn.addEventListener('click', () =>{
+            movieBtn.classList.toggle('movie-btn--liked');
+            likeMovie(movieCategory);
+            getLikedMovies();
 
+        });
+        movieContainer.appendChild(movieBtn)
 
          if(lazyLoad) {
              lazyLoader.observe(movieImg)
@@ -359,7 +385,7 @@ function createPostForMoviePages(movies, container, lazyLoad = false){
     })
 
     movieImg.addEventListener('click', () =>{
-        location.hash = '#movie=' + tv.id;
+        location.hash = '#tv=' + tv.id;
     });
     const movieBtn = document.createElement('button');
     movieBtn.classList.add('movie-btn');

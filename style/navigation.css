@@ -277,8 +277,8 @@ main .description-page--section{
 }
 
 /* inrelevante */
-
-.page-section .top--moviepages .search-img, .search-page--search  .main--search-section .search-img .movie-btn{
+ 
+.top--moviepages .search-img .movie-btn, .search-page--search  .main--search-section .search-img .movie-btn{
     z-index: 2;
     right: 10px;
     margin-top: 10px;
@@ -293,14 +293,14 @@ main .description-page--section{
     cursor: pointer;
 }
 
-.page-section .top--moviepages .search-img, .search-page--search  .main--search-section .search-img  .movie-btn:hover{
+.top--moviepages .search-img .movie-btn:hover, .search-page--search  .main--search-section .search-img  .movie-btn:hover{
     transform: scale(1.1);
     background-image: url('../icon/liked.png');
 }
 
-.page-section .top--moviepages .search-img, .search-page--search  .main--search-section .search-img .movie-btn--liked{
+.top--moviepages .search-img .movie-btn--liked, .search-page--search  .main--search-section .search-img .movie-btn--liked{
     background-image: url('../icon/liked.png');
 }
-.page-section .top--moviepages .search-img, .search-page--search  .main--search-section .search-img .movie-btn--liked:hover{
+.top--moviepages .search-img .movie-btn:hover, .search-page--search  .main--search-section .search-img .movie-btn--liked:hover{
     background-image: url('../icon/unliked.png');
 }
