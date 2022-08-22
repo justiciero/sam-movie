@@ -5,6 +5,7 @@ const api = axios.create({
     },
     params: {
         'api_key': API_KEY,
+        "language": navigator.language || "es-ES"
     },
 });
 function likedMoviesList() {
@@ -116,7 +117,7 @@ function createTvSearchPost(movies, container, {lazyLoad = false, clean = true})
         movieBtn.addEventListener('click', () =>{
             movieBtn.classList.toggle('movie-btn--liked');
             likeMovie(movieCategory)
-
+            getLikedMovies();
         });
         movieContainer.appendChild(movieBtn)
 
@@ -163,7 +164,7 @@ function createMovieHomePost(movies, container, lazyLoad = false){
             movieBtn.addEventListener('click', () =>{
                 movieBtn.classList.toggle('movie-btn--liked');
                 likeMovie(movie)
-
+                getLikedMovies();
             });
 
             if(lazyLoad) {
@@ -208,7 +209,7 @@ function createTvHomePost(shows, container, lazyLoad = false){
             movieBtn.addEventListener('click', () =>{
                 movieBtn.classList.toggle('movie-btn--liked');
                 likeMovie(show)
-
+                getLikedMovies();
             });
 
             if(lazyLoad) {
@@ -321,6 +322,7 @@ function createPostForMoviePages(movies, container, lazyLoad = false){
     movieBtn.addEventListener('click', () =>{
         movieBtn.classList.toggle('movie-btn--liked');
         likeMovie(movie)
+        getLikedMovies();
 
     });
     movieContainer.appendChild(movieBtn)
@@ -365,6 +367,7 @@ function createPostForMoviePages(movies, container, lazyLoad = false){
     movieBtn.addEventListener('click', () =>{
         movieBtn.classList.toggle('movie-btn--liked');
         likeMovie(tv)
+        getLikedMovies();
 
     });
     movieContainer.appendChild(movieBtn)

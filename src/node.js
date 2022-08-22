@@ -8,11 +8,11 @@ const formSection = document.querySelector("#header-form--section");
 const searchbtn = document.querySelector('#btnsearch');
 
 const searchInput = document.querySelector('#searchInput')
+
 const navSection =  document.querySelector('#header-nav--section');
 const imgheader = document.querySelector('.description-img--section');
 
 // Main
-
  const trendingMovie = document.querySelector("#Top-movie-section");
  const trendingSeries = document.querySelector("#tvshow-section");
  const upcomingMoviePreview = document.querySelector("#upcoming-section");

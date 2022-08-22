@@ -1,9 +1,17 @@
 let page = 1;
 let infiniteScroll;
 
+const contentSelect = document.getElementById('content-search');
+
 searchbtn.addEventListener('click', () =>{
     location.hash = '#search=' + searchInput.value.replaceAll(' ','-');
 });
+
+// if(contentSelect == Movie){
+//     console.log('movie')
+// } else if (contentSelect == Tv){
+//     console.log('Tv')
+// }
 
 
 window.addEventListener('DOMContentLoaded', navigator, false);
@@ -192,9 +200,9 @@ function searchOp(){
     getMovieSearch(query);
     infiniteScroll = getMovieSearch_scroll(query);
     
-    // const [__, query2] = location.hash.split('=');
-    // getTvSearch(query2);
-    // infiniteScroll = getTvSearch_scroll(query2);
+    const [__, query2] = location.hash.split('=');
+    getTvSearch(query2);
+    infiniteScroll = getTvSearch_scroll(query2);
 };
 
 function movieDeatailsPage(){

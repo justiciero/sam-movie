@@ -6,6 +6,24 @@
         flex-wrap: nowrap;
    }
 
+   .active-size {
+    width: 100%;
+    min-width: 1024px;
+    max-width: 1339px;
+    
+    }
+    .active-size .header-nav--section .header-nav--section {
+        min-width: 1024px;
+        max-width: 1339px;
+    }
+
+    .active-size .description-img--section .movie-img{
+    width: 100%;
+    height: 830px;
+    min-width: 1024px;
+    max-width: 1339px;
+    }
+
     header .header-section--wall .header-wall{
     width: 260px;
 

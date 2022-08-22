@@ -118,14 +118,14 @@ main .section-Top .top--moviepages .top-mp--article .movie-btn{
 
 main .section-Top .top--moviepages .top-mp--article .movie-btn:hover{
     transform: scale(1.1);
-    background-image: url('/icon/liked.png');
+    background-image: url('../icon/liked.png');
 }
 
 main .section-Top .top--moviepages .top-mp--article .movie-btn--liked{
-    background-image: url('/icon/liked.png');
+    background-image: url('../icon/liked.png');
 }
 main .section-Top .top--moviepages .top-mp--article .movie-btn--liked:hover{
-    background-image: url('/icon/unliked.png');
+    background-image: url('../icon/unliked.png');
 }
 
 /* Movie pages done */
@@ -286,7 +286,7 @@ main .description-page--section{
     width: 40px;
     height: 40px;
     background-color: transparent;
-    background-image: url('/icon/unliked.png');
+    background-image: url('../icon/unliked.png');
     background-repeat: no-repeat;
     background-size: cover;
     border: none;
@@ -295,12 +295,12 @@ main .description-page--section{
 
 .page-section .top--moviepages .search-img, .search-page--search  .main--search-section .search-img  .movie-btn:hover{
     transform: scale(1.1);
-    background-image: url('/icon/liked.png');
+    background-image: url('../icon/liked.png');
 }
 
 .page-section .top--moviepages .search-img, .search-page--search  .main--search-section .search-img .movie-btn--liked{
-    background-image: url('/icon/liked.png');
+    background-image: url('../icon/liked.png');
 }
 .page-section .top--moviepages .search-img, .search-page--search  .main--search-section .search-img .movie-btn--liked:hover{
-    background-image: url('/icon/unliked.png');
+    background-image: url('../icon/unliked.png');
 }
