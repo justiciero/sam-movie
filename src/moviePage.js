@@ -6,7 +6,7 @@ async function allNewMovie_PageMovie() {
     const { data } = await api('movie/now_playing',{
         params: {
             'page' : pagina,
-            'region' : 'BR' 
+            'region' : 'MX' 
         }
     });
     
